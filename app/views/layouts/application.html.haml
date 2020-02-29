@@ -39,9 +39,11 @@
                 = navbar_link_to :root, title: "Go to the home page", identifier: :home do
                   = icon 'fas', 'home'
                   Home
-                = navbar_link_to '#', title: "Go to an unavailable page", class: 'disabled', identifier: :unavailable_page do
-                  = icon 'fas', 'ban'
-                  Unavailable Page
+              - if current_user && current_user.admin
+                = navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
+                  = icon 'fas', 'add_users'
+                  Add Users
+                  
               - if user_signed_in?
                 %ul.nav.navbar-nav.ml-auto
                   %li.nav-item.dropdown
