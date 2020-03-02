@@ -7,7 +7,8 @@ class PagesController < ApplicationController
   end
 
 
-    def add_users
-    end
+  def add_users
+
+  end
 
 end

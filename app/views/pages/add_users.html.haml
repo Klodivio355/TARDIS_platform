@@ -1,4 +1,6 @@
-.jumbotron.mb-3
+- if current_user && current_user.admin
+
+  .jumbotron.mb-3
   %h1.display-5 You're good to go!
   %p.lead Your new Rails application is working.
   %p
@@ -7,3 +9,4 @@
     template with minimal additional CSS, using
     = link_to 'FontAwesome 5 Free', 'https://fontawesome.com/icons?d=gallery&m=free'
     for icons.
+

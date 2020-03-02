@@ -1,4 +1,4 @@
-- content_for :title, 'Log In'
+- content_for :title, 'Sign up'
 
 .row.justify-content-center
   .col-sm-6.col-lg-4
@@ -10,5 +10,5 @@
           = f.input :email, autofocus: true, required: true
           = f.input :password, required: true
         .card-footer
-          = submit_button 'Log in'
+          = submit_button 'Sign up'
           .mt-3= render "devise/shared/links"
