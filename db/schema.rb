@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "managers", primary_key: ["email", "id"], force: :cascade do |t|
+    t.string "email", limit: 50, null: false
+    t.integer "id", null: false
+    t.boolean "lead", null: false
+    t.integer "allocated_hours"
+    t.integer "holiday_hours"
+    t.integer "spare_hours"
+    t.integer "available_hours"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -41,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
 
   create_table "studies", id: :integer, default: nil, force: :cascade do |t|
     t.string "stage", limit: 50
-    t.string "lead_manager", limit: 50
-    t.string "backup_manager", limit: 50
+    t.string "lead", limit: 50
+    t.string "backup", limit: 50
     t.string "notes", limit: 50
     t.date "start_date"
     t.date "lplv"
@@ -75,7 +85,9 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "studies", "users", column: "backup_manager", primary_key: "email", name: "studies_backup_manager_fkey", on_delete: :cascade
-  add_foreign_key "studies", "users", column: "lead_manager", primary_key: "email", name: "studies_lead_manager_fkey", on_delete: :cascade
+  add_foreign_key "managers", "studies", column: "id", name: "managers_id_fkey", on_delete: :cascade
+  add_foreign_key "managers", "users", column: "email", primary_key: "email", name: "managers_email_fkey", on_delete: :cascade
+  add_foreign_key "studies", "users", column: "backup", primary_key: "email", name: "studies_backup_fkey", on_delete: :cascade
+  add_foreign_key "studies", "users", column: "lead", primary_key: "email", name: "studies_lead_fkey", on_delete: :cascade
   add_foreign_key "tasks", "studies", column: "id", name: "tasks_id_fkey"
 end

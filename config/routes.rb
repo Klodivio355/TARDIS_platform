@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :studies
   devise_for :users
   match "/403", to: "errors#error_403", via: :all
   match "/404", to: "errors#error_404", via: :all
   match "/422", to: "errors#error_422", via: :all
   match "/500", to: "errors#error_500", via: :all
-
-  get '/add_users', to: 'pages#add_users'
 
   get :ie_warning, to: 'errors#ie_warning'
   get :javascript_warning, to: 'errors#javascript_warning'
