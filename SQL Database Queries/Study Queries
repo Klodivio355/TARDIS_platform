@@ -1,0 +1,46 @@
+########################################################################################################################
+#----------------------------------------------< STUDY QUERIES >----------------------------------------------------------------
+########################################################################################################################
+#Add a new Study to the 'study' table.
+INSERT INTO study (study_name, stage, type, lead_manager, backup_manager, notes, start_date, lplv, study_finished)
+VALUES (?,?,?,?,?,NULL,?,?,0);
+#------------------------------------------------------------------------------------------------------------------------------
+#Delete a Study from 'study' based on its ID.
+DELETE FROM study WHERE study_id = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+#Update the name for a Study in 'study' based on study_id.
+UPDATE study SET study_name = ? WHERE study_id = ?;
+
+#Update the stage for a Study in 'study' based on study_id.
+UPDATE study SET stage = ? WHERE study_id = ?;
+
+#Update the type for a Study in 'study' based on study_id.
+UPDATE study SET type = ? WHERE study_id = ?;
+
+#Assign a lead manager to the study in 'study'.
+UPDATE study SET lead_manager = ? WHERE study_id = ?;
+
+#Assign a backup manager to the study in 'study'.
+UPDATE study SET backup_manager = ? WHERE study_id = ?;
+
+#Update the notes for a Study in 'study' based on study_id.
+UPDATE study SET notes = ? WHERE study_id = ?;
+
+#Update the start date for a Study in 'study' based on study_id.
+UPDATE study SET start_date = ? WHERE study_id = ?;
+
+#Update the LPLV for a Study in 'study' based on study_id.
+UPDATE study SET lplv = ? WHERE study_id = ?;
+
+#Mark a Study as finished.
+UPDATE study SET study_finished = 1 WHERE study_id = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+SELECT study_name from study WHERE study_id = ?;
+SELECT stage from study WHERE study_id = ?;
+SELECT type from study WHERE study_id = ?;
+SELECT lead_manager from study WHERE study_id = ?;
+SELECT backup_manager from study WHERE study_id = ?;
+SELECT notes from study WHERE study_id = ?;
+SELECT start_date from study WHERE study_id = ?;
+SELECT lplv from study WHERE study_id = ?;
+SELECT study_finished from study WHERE study_id = ?;
