@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "data_manager", primary_key: ["email", "study_id"], force: :cascade do |t|
+    t.string "email", limit: 50, null: false
+    t.integer "study_id", null: false
+    t.boolean "lead"
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -30,14 +36,14 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "managers", primary_key: ["email", "id"], force: :cascade do |t|
+  create_table "manager_hours", primary_key: ["email", "year", "month"], force: :cascade do |t|
     t.string "email", limit: 50, null: false
-    t.integer "id", null: false
-    t.boolean "lead", null: false
+    t.integer "year", null: false
+    t.integer "month", null: false
+    t.integer "available_hours"
     t.integer "allocated_hours"
     t.integer "holiday_hours"
     t.integer "spare_hours"
-    t.integer "available_hours"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -49,20 +55,33 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "studies", id: :integer, default: nil, force: :cascade do |t|
+  create_table "study", primary_key: "study_id", id: :integer, default: nil, force: :cascade do |t|
+    t.string "study_name", limit: 50
     t.string "stage", limit: 50
-    t.string "lead", limit: 50
-    t.string "backup", limit: 50
-    t.string "notes", limit: 50
+    t.string "type", limit: 50
+    t.string "lead_manager", limit: 50
+    t.string "backup_manager", limit: 50
+    t.string "notes", limit: 1000
     t.date "start_date"
     t.date "lplv"
+    t.boolean "study_finished", null: false
   end
 
-  create_table "tasks", id: false, force: :cascade do |t|
-    t.integer "id", null: false
-    t.integer "hours"
-    t.string "name", limit: 50
+  create_table "study_task", primary_key: "task_id", id: :integer, default: nil, force: :cascade do |t|
+    t.string "task_name", limit: 50, null: false
+    t.integer "study_id", null: false
+    t.integer "hours_worked"
+    t.integer "year"
     t.integer "month"
+    t.boolean "complete", null: false
+  end
+
+  create_table "task_list", primary_key: "task_name", id: :string, limit: 50, force: :cascade do |t|
+    t.integer "predicted_hours"
+    t.integer "average_hours", null: false
+    t.integer "task_counter"
+    t.integer "maximum_hours", null: false
+    t.integer "minimum_hours", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,9 +104,11 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "managers", "studies", column: "id", name: "managers_id_fkey", on_delete: :cascade
-  add_foreign_key "managers", "users", column: "email", primary_key: "email", name: "managers_email_fkey", on_delete: :cascade
-  add_foreign_key "studies", "users", column: "backup", primary_key: "email", name: "studies_backup_fkey", on_delete: :cascade
-  add_foreign_key "studies", "users", column: "lead", primary_key: "email", name: "studies_lead_fkey", on_delete: :cascade
-  add_foreign_key "tasks", "studies", column: "id", name: "tasks_id_fkey"
+  add_foreign_key "data_manager", "study", primary_key: "study_id", name: "dm_study_id"
+  add_foreign_key "data_manager", "users", column: "email", primary_key: "email", name: "dm_email"
+  add_foreign_key "manager_hours", "users", column: "email", primary_key: "email", name: "mh_email"
+  add_foreign_key "study", "users", column: "backup_manager", primary_key: "email", name: "study__backup"
+  add_foreign_key "study", "users", column: "lead_manager", primary_key: "email", name: "study_lead"
+  add_foreign_key "study_task", "study", primary_key: "study_id", name: "st_study_id"
+  add_foreign_key "study_task", "task_list", column: "task_name", primary_key: "task_name", name: "st_task_name"
 end
