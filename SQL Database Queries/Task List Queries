@@ -1,0 +1,41 @@
+########################################################################################################################
+#----------------------------------------------< TASK LIST QUERIES >----------------------------------------------------------------
+########################################################################################################################
+#Add a new Task to the 'task_list' table.
+INSERT INTO task_list (task_name, predicted_hours, average_hours, task_counter, maximum_hours, minimum_hours)
+VALUES (?,?,0,0,0,0);
+#------------------------------------------------------------------------------------------------------------------------------
+#Delete a Task from 'task_list' based on its name.
+DELETE FROM task_list WHERE task_name = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+#Update the name for a Task in 'task_list' based on task_name.
+UPDATE task_list SET task_name = ? WHERE task_name = ?;
+
+#Update the predicted hours for a Task in 'task_list' based on task_name.
+UPDATE task_list SET predicted_hours = ? WHERE task_name = ?;
+
+#Update the average hours for a Task in 'task_list' based on task_name.
+UPDATE task_list SET average_hours = ((average_hours * task_counter + ?)/task_counter + 1);
+
+#Increment the Task Counter for a Task in 'task_list' based on task_name.
+UPDATE task_list SET task_counter = task_counter + 1 WHERE task_name = ?;
+
+#Update the maximum hours for a Task in 'task_list' based on task_name and if input is bigger.
+UPDATE task_list
+SET maximum_hours = CASE
+    WHEN ? > maximum_hours THEN ?
+    ELSE maximum_hours
+END WHERE task_name = ?;
+
+#Update the minimum hours for a Task in 'task_list' based on task_name and if input is smaller.
+UPDATE task_list
+SET minimum_hours = CASE
+    WHEN ? < maximum_hours THEN ?
+    ELSE minimum_hours
+END WHERE task_name = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+SELECT predicted_hours from task_list WHERE task_name = ?;
+SELECT average_hours from task_list WHERE task_name = ?;
+SELECT task_counter from task_list WHERE task_name = ?;
+SELECT maximum_hours from task_list WHERE task_name = ?;
+SELECT minimum_hours from task_list WHERE task_name = ?;
