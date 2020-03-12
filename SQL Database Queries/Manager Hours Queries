@@ -1,0 +1,35 @@
+########################################################################################################################
+#----------------------------------------------< MANAGER HOURS QUERIES >----------------------------------------------------------------
+########################################################################################################################
+#Add a new Task to the 'study_task' table.
+INSERT INTO manager_hours (email, year, month, available_hours, allocated_hours, holiday_hours, spare_hours)
+VALUES (?,?,?,?,?,?,available_hours - (allocated_hours + holiday_hours));
+#------------------------------------------------------------------------------------------------------------------------------
+#Delete a Task from 'study_task' based on its ID.
+DELETE FROM manager_hours WHERE email = ?;
+
+#Delete a Task from 'study_task' based on its ID.
+DELETE FROM manager_hours WHERE email = ? and year = ? and month = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+#Update the name for a Task in 'study_task' based on task_name.
+UPDATE manager_hours SET year = ? WHERE email = ? and year = ? and month = ?;
+
+#Update the name for a Task in 'study_task' based on task_name.
+UPDATE manager_hours SET month = ? WHERE email = ? and year = ? and month = ?;
+
+#Update the name for a Task in 'study_task' based on task_name.
+UPDATE manager_hours SET available_hours = ? WHERE email = ? and year = ? and month = ?;
+
+#Update the name for a Task in 'study_task' based on task_name.
+UPDATE manager_hours SET allocated_hours = ? WHERE email = ? and year = ? and month = ?;
+
+#Update the name for a Task in 'study_task' based on task_name.
+UPDATE manager_hours SET holiday_hours = ? WHERE email = ? and year = ? and month = ?;
+
+#Update the name for a Task in 'study_task' based on task_name.
+UPDATE manager_hours SET spare_hours = available_hours - (allocated_hours + holiday_hours) WHERE email = ? and year = ? and month = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+SELECT available_hours from manager_hours WHERE email = ? and month = ? and year = ?;
+SELECT allocated_hours from manager_hours WHERE email = ? and month = ? and year = ?;
+SELECT holiday_hours from manager_hours WHERE email = ? and month = ? and year = ?;
+SELECT spare_hours from manager_hours WHERE email = ? and month = ? and year = ?;
