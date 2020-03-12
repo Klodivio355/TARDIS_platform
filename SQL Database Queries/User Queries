@@ -1,0 +1,19 @@
+########################################################################################################################
+#----------------------------------------------< USER QUERIES >----------------------------------------------------------------
+########################################################################################################################
+#Add a new User to the 'user' table.
+INSERT INTO user (email, username, password, admin)
+VALUES (?,?,?,0);
+
+#Delete a User from the 'user' table based on their email.
+DELETE FROM user WHERE email = ?;
+
+#Change the password of a User in 'user'.
+UPDATE user SET password = ? where email = ?;
+
+#Make user an Admin in 'user'.
+UPDATE user SET admin = 1 where email = ?;
+#------------------------------------------------------------------------------------------------------------------------------
+SELECT username from user WHERE email = ?;
+SELECT password from user WHERE email = ?;
+SELECT admin from user WHERE email = ?;
