@@ -33,3 +33,32 @@ SELECT available_hours from manager_hours WHERE email = ? and month = ? and year
 SELECT allocated_hours from manager_hours WHERE email = ? and month = ? and year = ?;
 SELECT holiday_hours from manager_hours WHERE email = ? and month = ? and year = ?;
 SELECT spare_hours from manager_hours WHERE email = ? and month = ? and year = ?;
+#------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------------< Specific Queries >-----------------------------------------------------#
+#Show all hours for DM [INPUT] in [MONTH] in year [YEAR].
+SELECT available_hours, allocated_hours, holiday_hours, spare_hours FROM manager_hours
+WHERE email = ? AND month = 1-12 AND year = 2020-2050;
+
+#Show available_hours for DM [INPUT] in [MONTH] in year [YEAR]
+SELECT available_hours FROM manager_hours
+WHERE email = ? AND month = 1-12 AND year = 2020-2050;
+
+#Show allocated_hours for DM [INPUT] in [MONTH] in year [YEAR]
+SELECT allocated_hours FROM manager_hours
+WHERE email = ? AND month = 1-12 AND year = 2020-2050;
+
+#Show holiday_hours for DM [INPUT] in [MONTH] in year [YEAR]
+SELECT holiday_hours FROM manager_hours
+WHERE email = ? AND month = 1-12 AND year = 2020-2050;
+
+#Show spare_hours for DM [INPUT] in [MONTH] in year [YEAR]
+SELECT spare_hours FROM manager_hours
+WHERE email = ? AND month = 1-12 AND year = 2020-2050;
+
+#Show all hours for all months in a year [INPUT] for a DM [INPUT].
+SELECT month, available_hours, allocated_hours, holiday_hours, spare_hours FROM manager_hours
+WHERE email = ? AND year = ?;
+
+#Show all data managers that have holidays in month [INPUT] in year [YEAR].
+SELECT email, holiday_hours FROM manager_hours
+WHERE holiday_hours > 0 AND month = 1-12 AND year = 2020-2050;
