@@ -20,3 +20,23 @@ UPDATE data_manager SET lead = 1 where email = ? and study_id = ?;
 SELECT email from data_manager WHERE email = ? and study_id = ?;
 SELECT study_id from data_manager WHERE email = ? and study_id = ?
 SELECT lead from data_manager WHERE email = ? and study_id = ?;;
+#----------------------------------------------------------------------------------------------------------------------------------#
+#------------------------------------------------------< Specific Queries >--------------------------------------------------------#
+
+#Show all studies that [INPUT] data_manager is working on.
+SELECT study_id FROM data_manager WHERE email = ?;
+
+#Show all studies for which [INPUT] data manager is lead on.
+SELECT study_id FROM data_manager WHERE email = ? AND lead = 1;
+
+#Show all studies for which [INPUT] data manager is backup on.
+SELECT study_id FROM data_manager WHERE email = ? AND lead = 0;
+
+#Show all data managers working on study_id [INPUT].
+SELECT email FROM data_manager WHERE study_id = ?;
+
+#Show the lead DM working on study_id [INPUT].
+SELECT email FROM data_manager WHERE study_id = ? AND lead = 1;
+
+#Show the backup DM working on study_id [INPUT].
+SELECT email FROM data_manager WHERE study_id = ? AND lead = 0;
