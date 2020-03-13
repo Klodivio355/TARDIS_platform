@@ -39,3 +39,28 @@ SELECT average_hours from task_list WHERE task_name = ?;
 SELECT task_counter from task_list WHERE task_name = ?;
 SELECT maximum_hours from task_list WHERE task_name = ?;
 SELECT minimum_hours from task_list WHERE task_name = ?;
+
+#------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------------< Specific Queries >-----------------------------------------------------#
+#Show all hours for a task_name [INPUT]
+SELECT  predicted_hours, average_hours, maximum_hours, minimum_hours FROM task_list
+WHERE task_name = ?;
+
+#Show tasks where predicted hours < average hours.
+SELECT  task_name, predicted_hours, average_hours FROM task_list WHERE predicted_hours < average_hours;
+
+#Show tasks where predicted hours > average hours.
+SELECT  task_name, predicted_hours, average_hours FROM task_list WHERE predicted_hours > average_hours;
+
+#Show maximum hours for a task [INPUT]
+SELECT  maximum_hours FROM task_list WHERE task_name = ?;
+
+#Show minimum hours for a task [INPUT]
+SELECT  minimum_hours FROM task_list WHERE task_name = ?;
+
+#Show average hours for a task [INPUT]
+SELECT  average_hours FROM task_list WHERE task_name = ?;
+
+#Show predicted hours for a task [INPUT]
+SELECT  predicted_hours FROM task_list WHERE task_name = ?;
+
