@@ -33,3 +33,19 @@ SELECT year from study_task WHERE task_id = ?;
 SELECT month from study_task WHERE task_id = ?;
 SELECT complete from study_task WHERE task_id = ?;
 
+#------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------------< Specific Queries >-----------------------------------------------------#
+#Show a study task and its hours worked from study ID [INPUT] month [MONTH] and year [YEAR]
+SELECT task_name, hours_worked FROM study_task WHERE study_id = ? AND month = 1-12 AND year = 2020 - 2050;
+
+#Show all complete tasks for a study ID [INPUT]
+SELECT task_name, hours_worked FROM study_task WHERE study_id = ? AND complete = 1;
+
+#Show all incomplete tasks for a study ID [INPUT]
+SELECT task_name, hours_worked FROM study_task WHERE study_id = ? AND complete = 0;
+
+#Show all tasks for a study id [INPUT] over a specific year [INPUT]
+SELECT  task_name, hours_worked, month FROM study_task WHERE study_id = ? AND year = ?;
+
+#Show all studies and their tasks for a specific month [INPUT]
+SELECT  task_name, study_id, hours_worked FROM study_task WHERE month = ? AND year = 2020-2050;
