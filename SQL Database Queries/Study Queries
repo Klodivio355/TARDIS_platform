@@ -44,3 +44,39 @@ SELECT notes from study WHERE study_id = ?;
 SELECT start_date from study WHERE study_id = ?;
 SELECT lplv from study WHERE study_id = ?;
 SELECT study_finished from study WHERE study_id = ?;
+
+#------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------------< Specific Queries >-----------------------------------------------------#
+#Show all information about a study_id [INPUT]
+SELECT study_name, stage, type, lead_manager, backup_manager, start_date, lplv FROM study
+WHERE study_id = ?;
+
+#Show all studies of type [INPUT].
+SELECT study_id, study_name, lead_manager, backup_manager, start_date, lplv FROM study
+WHERE type = ?;
+
+#Show all unfinished studies.
+SELECT study_id, study_name, stage, type, lead_manager, backup_manager, start_date, lplv FROM study
+WHERE study_finished = 0;
+
+#Show all finished studies.
+SELECT study_id, study_name, stage, type, lead_manager, backup_manager, start_date, lplv FROM study
+WHERE study_finished = 1;
+
+#Show the stage of study_id [INPUT]
+SELECT stage FROM study WHERE study_id = ?;
+
+#Show the type of study_id [INPUT]
+SELECT type FROM study WHERE study_id = ?;
+
+#Show the name of study_id [INPUT]
+SELECT study_name FROM study WHERE study_id = ?;
+
+#Show the notes of study_id [INPUT]
+SELECT notes FROM study WHERE study_id = ?;
+
+#Show the start date of study_id [INPUT]
+SELECT start_date FROM study WHERE study_id = ?;
+
+#Show the lplv of study_id [INPUT]
+SELECT lplv FROM study WHERE study_id = ?;
