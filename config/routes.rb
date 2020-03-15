@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :managers
+  resources :tasks
   resources :studies
   devise_for :users
   match "/403", to: "errors#error_403", via: :all
