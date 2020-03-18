@@ -1,9 +1,16 @@
 -# frozen_string_literal: true
-= simple_form_for(@task) do |f|
+= simple_form_for(@task_list) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
+    = f.input :task_name
+    = f.input :predicted_hours
+    = f.input :average_hours
+    = f.input :task_counter
+    = f.input :maximum_hours
+    = f.input :minimum_hours
+
 
   .form-actions
     = f.button :submit

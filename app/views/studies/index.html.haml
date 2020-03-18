@@ -1,4 +1,4 @@
-%h1 Listing studies
+%h1 All study timelines
 
 %table
   %thead
@@ -12,6 +12,8 @@
       %th Notes
       %th Start date
       %th LPLV
+      %th Complete
+      %th
       %th
       %th
       %th
@@ -28,9 +30,11 @@
         %td= study.notes
         %td= study.start_date
         %td= study.lplv
+        %td= study.study_finished
         %td= link_to 'Show', study
         %td= link_to 'Edit', edit_study_path(study)
         %td= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show Tasks', study
 
 
         = simple_form_for :search, url: search_studies_path, method: :post do |f|
@@ -41,6 +45,6 @@
 %br
 
 = link_to 'New Study', new_study_path
-= link_to 'Listing Categories', studies_path
+= link_to 'Listing Studies', studies_path
 
 

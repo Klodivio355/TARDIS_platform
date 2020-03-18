@@ -1,0 +1,29 @@
+%h1 Listing Tasks
+
+%table
+  %thead
+    %tr
+      %th Task Name
+      %th Predicted Hours
+      %th Average Hours
+      %th Maximum Hours
+      %th Minimum Hours
+      %th
+      %th
+      %th
+
+  %tbody
+    - @task_lists.each do |task_list|
+      %tr
+        %td= task_list.task_name
+        %td= task_list.predicted_hours
+        %td= task_list.average_hours
+        %td= task_list.maximum_hours
+        %td= task_list.minimum_hours
+        %td= link_to 'Show', task_list
+        %td= link_to 'Edit', edit_task_list_path(task_list)
+        %td= link_to 'Destroy', task_list, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Task list', new_task_list_path
