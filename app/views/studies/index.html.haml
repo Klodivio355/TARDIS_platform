@@ -3,6 +3,15 @@
 %table
   %thead
     %tr
+      %th ID
+      %th Name
+      %th Stage
+      %th Type
+      %th Lead manager
+      %th Backup manager
+      %th Notes
+      %th Start date
+      %th LPLV
       %th
       %th
       %th
@@ -10,10 +19,28 @@
   %tbody
     - @studies.each do |study|
       %tr
+        %td= study.id
+        %td= study.study_name
+        %td= study.stage
+        %td= study.type
+        %td= study.lead_manager
+        %td= study.backup_manager
+        %td= study.notes
+        %td= study.start_date
+        %td= study.lplv
         %td= link_to 'Show', study
         %td= link_to 'Edit', edit_study_path(study)
         %td= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }
 
+
+        = simple_form_for :search, url: search_studies_path, method: :post do |f|
+          = f.input :study_name
+          = f.submit 'Search'
+          = link_to 'Reset', studies_path
+
 %br
 
 = link_to 'New Study', new_study_path
+= link_to 'Listing Categories', studies_path
+
+

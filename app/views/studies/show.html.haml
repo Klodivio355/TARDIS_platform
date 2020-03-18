@@ -1,6 +1,35 @@
 %p#notice= notice
 
 
+%p
+  %b Id:
+  = @study.id
+%p
+  %b Name:
+  = @study.study_name
+%p
+  %b Stage:
+  = @study.stage
+%p
+  %b Type:
+  = @study.type
+%p
+  %b Notes:
+  = @study.notes
+%p
+  %b Lead Manager:
+  = @study.lead_manager
+%p
+  %b Lead Manager:
+  = @study.backup_manager
+%p
+  %b Start Date:
+  = @study.start_date
+%p
+  %b LPLV:
+  = @study.lplv
+
+\|
 = link_to 'Edit', edit_study_path(@study)
 \|
 = link_to 'Back', studies_path

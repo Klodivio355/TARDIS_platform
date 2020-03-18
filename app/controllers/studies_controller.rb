@@ -30,6 +30,12 @@ class StudiesController < ApplicationController
     end
   end
 
+  def search
+    # {"search" => {"name" => "some entered name"} }
+    @studies = Study.where(study_name: params[:search][:study_name])
+    render :index
+  end
+
   # PATCH/PUT /studies/1
   def update
     if @study.update(study_params)
