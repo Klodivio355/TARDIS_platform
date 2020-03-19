@@ -16,18 +16,6 @@ create table studies
         foreign key (backup_manager) references users (email)
 );
 
-create table data_managers
-(
-    email    varchar(50) not null,
-    study_id int         not null,
-    Lead   bool,
-    primary key (email, study_id),
-    constraint DM_email
-        foreign key (email) references users (email),
-    constraint DM_study_id
-        foreign key (study_id) references studies (study_id)
-);
-
 create table task_lists
 (
     task_name       varchar(50) not null
