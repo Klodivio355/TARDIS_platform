@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "data_managers", primary_key: ["email", "study_id"], force: :cascade do |t|
-    t.string "email", limit: 50, null: false
-    t.integer "study_id", null: false
-    t.boolean "lead"
-  end
-
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -70,7 +64,8 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
   create_table "study_tasks", primary_key: "task_id", id: :integer, default: nil, force: :cascade do |t|
     t.string "task_name", limit: 50, null: false
     t.integer "study_id", null: false
-    t.integer "hours_worked"
+    t.integer "backup_hours_worked"
+    t.integer "lead_hours_worked"
     t.integer "year"
     t.integer "month"
     t.boolean "complete", null: false
@@ -104,8 +99,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "data_managers", "studies", primary_key: "study_id", name: "dm_study_id"
-  add_foreign_key "data_managers", "users", column: "email", primary_key: "email", name: "dm_email"
   add_foreign_key "manager_hours", "users", column: "email", primary_key: "email", name: "mh_email"
   add_foreign_key "studies", "users", column: "backup_manager", primary_key: "email", name: "study__backup"
   add_foreign_key "studies", "users", column: "lead_manager", primary_key: "email", name: "study_lead"

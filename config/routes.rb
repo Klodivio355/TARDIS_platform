@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :task_lists
-  resources :managers
 
   resources :studies do
     post :search, on: :collection
