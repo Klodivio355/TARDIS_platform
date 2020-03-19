@@ -1,0 +1,4 @@
+class StudyTask < ApplicationRecord
+
+
+end

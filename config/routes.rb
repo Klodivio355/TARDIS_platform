@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :study_tasks
   resources :task_lists
 
   resources :studies do

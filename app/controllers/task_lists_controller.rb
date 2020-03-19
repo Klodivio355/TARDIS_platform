@@ -39,6 +39,11 @@ class TaskListsController < ApplicationController
     end
   end
 
+  def get_rel_task(arg)
+    @task_list = TaskList.find(arg.id)
+    render :'task_lists/show'
+  end
+
   # DELETE /task_lists/1
   def destroy
     @task_list.destroy

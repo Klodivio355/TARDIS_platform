@@ -1,0 +1,31 @@
+%p#notice= notice
+
+%p
+  %b Id:
+  = @study_task.task_id
+%p
+  %b Name:
+  = @study_task.task_name
+%p
+  %b Study:
+  = @study_task.study_id
+%p
+  %b Backup Hours:
+  = @study_task.backup_hours_worked
+%p
+  %b Lead Hours:
+  = @study_task.lead_hours_worked
+%p
+  %b Year :
+  = @study_task.year
+%p
+  %b Month :
+  = @study_task.month
+%p
+  %b Complete:
+  = @study_task.complete
+
+
+= link_to 'Edit', edit_study_task_path(@study_task)
+\|
+= link_to 'Back', study_tasks_path

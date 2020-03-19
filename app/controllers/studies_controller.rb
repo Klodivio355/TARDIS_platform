@@ -45,6 +45,7 @@ class StudiesController < ApplicationController
     end
   end
 
+
   # DELETE /studies/1
   def destroy
     @study.destroy
