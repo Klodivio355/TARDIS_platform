@@ -1,0 +1,38 @@
+====================================================< Users >===========================================================
+
+#Defining a class for a User
+----------------------------------------
+    class User < ApplicationRecord
+        has_many :study_tasks
+        has_and_belongs_to_many :studies
+----------------------------------------
+
+#Statements to select each field of a User in 'users' individually.
+----------------------------------------------------------------------
+ POSSIBLE SOLUTION 1:   User.where("email = ?", params[:email]).select(:username)
+ POSSIBLE SOLUTION 2:   User.where(email: 'email').select(:username)
+
+#Statements for all the rest of the table fields.
+----------------------------------------------------------------------
+    User.where("email = ?", params[:email]).select(:username)
+    User.where("email = ?", params[:email]).select(:password)
+    User.where("email = ?", params[:email]).select(:admin)
+----------------------------------------------------------------------
+
+#Statements to update each field of a User in 'users' individually.
+-------------------------------------------------------------------------
+POSSIBLE SOLUTION 1:  User.where("email = ?", params[:email]).limit(1).update_all(email: "email2")
+
+#Statements for all the rest of the table fields.
+-------------------------------------------------------------------------
+    Study.where(study_id: 1).limit(1).update_all(study_name: "name2")
+    Study.where(study_id: 1).limit(1).update_all(stage: "example")
+    Study.where(study_id: 1).limit(1).update_all(type: "example")
+-------------------------------------------------------------------------
+====================================================< Specific Queries >================================================
+
+#Show all users which are admins
+User.where(admin: true).select(:email, :username, :admin)
+
+#Show all users which aren't admins
+User.where(admin: false).select(:email, :username, :admin)
