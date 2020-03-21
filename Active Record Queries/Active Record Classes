@@ -1,0 +1,27 @@
+====================================================< users >===========================================================
+
+class User < ApplicationRecord
+    has_many :manager_hours
+    has_and_belongs_to_many :studies
+
+====================================================< studies >=========================================================
+
+class Study < ApplicationRecord
+    has_many :study_tasks
+    has_and_belongs_to_many :users
+
+====================================================< study_tasks >=======================================================
+
+class Study_Task < ApplicationRecord
+    belongs_to :studies
+    has_many :task_lists
+
+====================================================< task_lists >=====================================================
+
+class TaskList < ApplicationRecord
+    belongs_to :study_tasks
+
+====================================================< manager_hours >===================================================
+
+class ManagerHour < ApplicationRecord
+    belongs_to :users
