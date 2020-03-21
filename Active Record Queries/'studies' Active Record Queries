@@ -1,0 +1,57 @@
+====================================================< Studies >=========================================================
+
+#Defining a class for a Study
+----------------------------------------
+    class Study < ApplicationRecord
+        has_many :study_tasks
+        has_and_belongs_to_many :users
+----------------------------------------
+
+#Statements to select each field of a Study in 'studies' individually.
+----------------------------------------------------------------------
+ POSSIBLE SOLUTION 1:   Study.where("study_id = ?", params[:study_id]).select(:study_name)
+ POSSIBLE SOLUTION 2:   Study.where(study_id: 1).select(:study_name)
+
+ #statements for all the rest of the table fields.
+----------------------------------------------------------------------
+    Study.where(study_id: 1).select(:study_name)
+    Study.where(study_id: 1).select(:stage)
+    Study.where(study_id: 1).select(:type)
+    Study.where(study_id: 1).select(:lead_manager)
+    Study.where(study_id: 1).select(:backup_manager)
+    Study.where(study_id: 1).select(:notes)
+    Study.where(study_id: 1).select(:start_date)
+    Study.where(study_id: 1).select(:lplv)
+    Study.where(study_id: 1).select(:study_finished)
+----------------------------------------------------------------------
+
+#Statements to update each field of a Study in 'studies' individually.
+-------------------------------------------------------------------------
+POSSIBLE SOLUTION 1: Study.update(1, :study_name => 'name2')
+POSSIBLE SOLUTION 2: Study.where(study_id: 1).limit(1).update_all(study_name: "name2")
+
+#statements for all the rest of the table fields.
+-------------------------------------------------------------------------
+    Study.where(study_id: 1).limit(1).update_all(study_name: "name2")
+    Study.where(study_id: 1).limit(1).update_all(stage: "example")
+    Study.where(study_id: 1).limit(1).update_all(type: "example")
+    Study.where(study_id: 1).limit(1).update_all(lead_manager: "email")
+    Study.where(study_id: 1).limit(1).update_all(backup_manager: "email")
+    Study.where(study_id: 1).limit(1).update_all(notes: "example")
+    Study.where(study_id: 1).limit(1).update_all(start_date: "date")
+    Study.where(study_id: 1).limit(1).update_all(lplv: "date")
+    Study.where(study_id: 1).limit(1).update_all(study_finished: false)
+-------------------------------------------------------------------------
+====================================================< Specific Queries >=========================================================
+
+#Show all studies of type [INPUT]
+Study.where("type = ?", params[:type]).select(:study_name, :stage, :lead_manager, :backup_manager, :start_date, :lplv)
+
+#Show all finished studies
+Study.where(study_finished: true).select(:study_name, :stage, :lead_manager, :backup_manager, :start_date, :lplv)
+
+#Show all unfinished studies
+Study.where(study_finished: false).select(:study_name, :stage, :lead_manager, :backup_manager, :start_date, :lplv)
+
+#Show all studies where [INPUT] is a data manager on that study.
+Study.where("lead_manager = ? OR backup_manager = ?", params[:lead_manager], params[:backup_manager]).select(:study_name, :stage, :lead_manager, :backup_manager, :start_date, :lplv)
