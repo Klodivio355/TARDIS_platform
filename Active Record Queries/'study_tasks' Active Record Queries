@@ -1,0 +1,27 @@
+====================================================< Study_Tasks >===========================================================
+
+#Defining a class for a Study Task
+----------------------------------------
+    class StudyTask < ApplicationRecord
+        belongs_to :studies
+        has_many :task_lists
+----------------------------------------
+
+#Statements to select each field of a Study Task in 'study_tasks' individually.
+---------------------------------------------------------------------------------------------------------------------------------------
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).select(:task_name)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).select(:lead_hours)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).select(:backup_hours)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).select(:year)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).select(:month)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).select(:complete)
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#Statements to update each field of a User in 'users' individually.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).update(task_name: "name")
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).update(lead_hours: 10)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).update(backup_hours: 10)
+    StudyTask.where("study_id = ? AND year = ? AND month = ?", params[:study_id], params[:year, params[:month]).update(complete: true)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
