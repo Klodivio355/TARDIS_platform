@@ -9,38 +9,33 @@
 
 #Statements to select each field of a Study in 'studies' individually.
 ----------------------------------------------------------------------
- POSSIBLE SOLUTION 1:   Study.where("study_id = ?", params[:study_id]).select(:study_name)
- POSSIBLE SOLUTION 2:   Study.where(study_id: 1).select(:study_name)
-
- #statements for all the rest of the table fields.
-----------------------------------------------------------------------
-    Study.where(study_id: 1).select(:study_name)
-    Study.where(study_id: 1).select(:stage)
-    Study.where(study_id: 1).select(:type)
-    Study.where(study_id: 1).select(:lead_manager)
-    Study.where(study_id: 1).select(:backup_manager)
-    Study.where(study_id: 1).select(:notes)
-    Study.where(study_id: 1).select(:start_date)
-    Study.where(study_id: 1).select(:lplv)
-    Study.where(study_id: 1).select(:study_finished)
+    Study.where("study_id = ?", params[:study_id]).select(:study_name)
+    Study.where("study_id = ?", params[:study_id]).select(:stage)
+    Study.where("study_id = ?", params[:study_id]).select(:type)
+    Study.where("study_id = ?", params[:study_id]).select(:lead_manager)
+    Study.where("study_id = ?", params[:study_id]).select(:backup_manager)
+    Study.where("study_id = ?", params[:study_id]).select(:notes)
+    Study.where("study_id = ?", params[:study_id]).select(:start_date)
+    Study.where("study_id = ?", params[:study_id]).select(:lplv)
+    Study.where("study_id = ?", params[:study_id]).select(:study_finished)
 ----------------------------------------------------------------------
 
 #Statements to update each field of a Study in 'studies' individually.
--------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 POSSIBLE SOLUTION 1: Study.update(1, :study_name => 'name2')
 POSSIBLE SOLUTION 2: Study.where(study_id: 1).limit(1).update_all(study_name: "name2")
 
 #statements for all the rest of the table fields.
--------------------------------------------------------------------------
-    Study.where(study_id: 1).limit(1).update_all(study_name: "name2")
-    Study.where(study_id: 1).limit(1).update_all(stage: "example")
-    Study.where(study_id: 1).limit(1).update_all(type: "example")
-    Study.where(study_id: 1).limit(1).update_all(lead_manager: "email")
-    Study.where(study_id: 1).limit(1).update_all(backup_manager: "email")
-    Study.where(study_id: 1).limit(1).update_all(notes: "example")
-    Study.where(study_id: 1).limit(1).update_all(start_date: "date")
-    Study.where(study_id: 1).limit(1).update_all(lplv: "date")
-    Study.where(study_id: 1).limit(1).update_all(study_finished: false)
+--------------------------------------------------------------------------------------
+    Study.where("study_id = ?", params[:study_id]).update(study_name: "name2")
+    Study.where("study_id = ?", params[:study_id]).update(stage: "example")
+    Study.where("study_id = ?", params[:study_id]).update(type: "example")
+    Study.where("study_id = ?", params[:study_id]).update(lead_manager: "email")
+    Study.where("study_id = ?", params[:study_id]).update(backup_manager: "email")
+    Study.where("study_id = ?", params[:study_id]).update(notes: "example")
+    Study.where("study_id = ?", params[:study_id]).update(start_date: "date")
+    Study.where("study_id = ?", params[:study_id]).update(lplv: "date")
+    Study.where("study_id = ?", params[:study_id]).update(study_finished: false)
 -------------------------------------------------------------------------
 ====================================================< Specific Queries >=========================================================
 
@@ -55,3 +50,4 @@ Study.where(study_finished: false).select(:study_name, :stage, :lead_manager, :b
 
 #Show all studies where [INPUT] is a data manager on that study.
 Study.where("lead_manager = ? OR backup_manager = ?", params[:lead_manager], params[:backup_manager]).select(:study_name, :stage, :lead_manager, :backup_manager, :start_date, :lplv)
+
