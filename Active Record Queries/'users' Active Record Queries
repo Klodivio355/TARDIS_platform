@@ -25,9 +25,9 @@ POSSIBLE SOLUTION 1:  User.where("email = ?", params[:email]).limit(1).update_al
 
 #Statements for all the rest of the table fields.
 -------------------------------------------------------------------------
-    Study.where(study_id: 1).limit(1).update_all(study_name: "name2")
-    Study.where(study_id: 1).limit(1).update_all(stage: "example")
-    Study.where(study_id: 1).limit(1).update_all(type: "example")
+    User.where("email = ?", params[:email]).update(username: "name2")
+    User.where("email = ?", params[:email]).update(password: "example")
+    User.where("email = ?", params[:email]).update(admin: 1)
 -------------------------------------------------------------------------
 ====================================================< Specific Queries >================================================
 
