@@ -1,0 +1,29 @@
+====================================================< Manager_Hours >===========================================================
+
+#Defining a class for a Manager Hour
+----------------------------------------
+    class ManagerHour < ApplicationRecord
+        belongs_to :studies
+        has_many :task_lists
+----------------------------------------
+
+#Statements to select each field of a ManagerHour in 'manager_hours' individually.
+---------------------------------------------------------------------------------------------------------------------------------------
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:email)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:year)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:month)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:available_hours)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:allocated_hours)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:holiday_hours)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).select(:spare_hours)
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#Statements to update each field of a ManagerHour in 'manager_hours' individually.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).update(available_hours: 10)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).update(allocated_hours: 10)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).update(holiday_hours: 10)
+    ManagerHour.where("email = ? AND year = ? AND month = ?", params[:email], params[:year, params[:month]).update(spare_hours: 10)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+====================================================< Specific Queries >================================================
+
