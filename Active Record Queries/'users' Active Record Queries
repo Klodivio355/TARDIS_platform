@@ -9,21 +9,12 @@
 
 #Statements to select each field of a User in 'users' individually.
 ----------------------------------------------------------------------
- POSSIBLE SOLUTION 1:   User.where("email = ?", params[:email]).select(:username)
- POSSIBLE SOLUTION 2:   User.where(email: 'email').select(:username)
-
-#Statements for all the rest of the table fields.
-----------------------------------------------------------------------
     User.where("email = ?", params[:email]).select(:username)
     User.where("email = ?", params[:email]).select(:password)
     User.where("email = ?", params[:email]).select(:admin)
 ----------------------------------------------------------------------
 
 #Statements to update each field of a User in 'users' individually.
--------------------------------------------------------------------------
-POSSIBLE SOLUTION 1:  User.where("email = ?", params[:email]).limit(1).update_all(email: "email2")
-
-#Statements for all the rest of the table fields.
 -------------------------------------------------------------------------
     User.where("email = ?", params[:email]).update(username: "name2")
     User.where("email = ?", params[:email]).update(password: "example")
