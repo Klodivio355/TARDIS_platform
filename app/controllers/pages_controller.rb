@@ -6,9 +6,4 @@ class PagesController < ApplicationController
     @current_nav_identifier = :home
   end
 
-
-  def add_users
-
-  end
-
 end

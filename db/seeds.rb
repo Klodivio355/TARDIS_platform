@@ -8,5 +8,5 @@
 
 
 User.where(email:
-               'user@gmail.com').first_or_create(password:
+               'users@gmail.com').first_or_create(password:
                                                                        'mdp123', password_confirmation: 'mdp123')

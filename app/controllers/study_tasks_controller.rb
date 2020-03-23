@@ -6,6 +6,7 @@ class StudyTasksController < ApplicationController
     @study_tasks = StudyTask.all
   end
 
+
   # GET /study_tasks/1
   def show
   end

@@ -1,11 +1,11 @@
 ## Application deployment configuration
 set :server,      'DEMO_SERVER'
-set :user,        'DEMO_USER'
-set :deploy_to,   -> { "/srv/services/#{fetch(:user)}" }
+set :users, 'DEMO_USER'
+set :deploy_to,   -> { "/srv/services/#{fetch(:users)}" }
 set :log_level,   :debug
 
 ## Server configuration
-server fetch(:server), user: fetch(:user), roles: %w{web app db}
+server fetch(:server), users: fetch(:users), roles: %w{web app db}
 
 ## Additional tasks
 namespace :deploy do

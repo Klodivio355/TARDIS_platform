@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   resources :study_tasks
   resources :task_lists
-
   resources :studies do
     post :search, on: :collection
   end
+
+  get :study_hours_timeline, to: 'studies#study_hours_timeline'
+
 
   devise_for :users
   match "/403", to: "errors#error_403", via: :all

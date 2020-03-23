@@ -1,0 +1,33 @@
+%table
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th Lead Manager
+      %th Backup Manager
+      %th January
+      %th February
+      %th March
+      %th April
+      %th May
+      %th June
+      %th July
+      %th August
+      %th September
+      %th October
+      %th November
+      %th Decemmber
+
+
+
+  %tbody
+    - @studies.each do |study|
+      %tr
+        %td= study.study_id
+        %td= study.study_name
+        %td= study.lead_manager
+        %td= study.backup_manager
+        %td= StudyTask.where(study_id: study.study_id, month: 2).sum(:lead_hours_worked) #%; StudyTask.where(study_id: study.study_id, month: 2).sum(:backup_hours_worked)
+
+
+%br
