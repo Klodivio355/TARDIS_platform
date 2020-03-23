@@ -1,0 +1,42 @@
+%h1 Listing manager_hours
+
+%table
+  %thead
+    %tr
+      %th Data Manager
+      %th{:colspan => 4} January
+      %th{:colspan => 4} February
+      -#%th{:colspan => 4} March
+      -#%th{:colspan => 4} April
+      -#%th{:colspan => 4} May
+      -#%th{:colspan => 4} June
+      -#%th{:colspan => 4} July
+      -#%th{:colspan => 4} August
+      -#%th{:colspan => 4} September
+      -#%th{:colspan => 4} October
+      -#%th{:colspan => 4} November
+      -#%th{:colspan => 4} December
+
+    %tr
+      %th
+      %th Available Hours
+      %th Allocated Hours
+      %th Holiday Hours
+      %th Spare Hours
+      %th Available Hours
+      %th Allocated Hours
+      %th Holiday Hours
+      %th Spare Hours
+
+
+  %tbody
+    - @manager_hours.each do |manager_hour|
+      %tr
+        %td= manager_hour.email
+        %td= manager_hour.available_hours
+        %td= manager_hour.allocated_hours
+        %td= manager_hour.holiday_hours
+        %td= manager_hour.spare_hours
+%br
+
+= link_to 'New Manager hour', new_manager_hour_path

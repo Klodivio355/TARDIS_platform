@@ -1,0 +1,2 @@
+class ManagerHour < ApplicationRecord
+end

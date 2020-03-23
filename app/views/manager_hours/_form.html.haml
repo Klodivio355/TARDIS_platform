@@ -1,15 +1,9 @@
 -# frozen_string_literal: true
-= simple_form_for(User.new) do |f|
+= simple_form_for(@manager_hour) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :id
-    = f.input :email
-    = f.input :username
-    = f.input :password
-    = f.input :admin
-
 
   .form-actions
     = f.button :submit
