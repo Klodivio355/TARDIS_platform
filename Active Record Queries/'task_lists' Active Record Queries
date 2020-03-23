@@ -1,0 +1,25 @@
+====================================================< Task_Lists >===========================================================
+
+#Defining a class for a Task List
+----------------------------------------
+    class TaskList < ApplicationRecord
+        belongs_to :study_tasks
+----------------------------------------
+
+#Statements to select each field of a Task List in 'task_lists' individually.
+---------------------------------------------------------------------------------------------------------------------------------------
+    StudyTask.where("task_name = ?, params[:task_name]).select(:average_hours)
+    StudyTask.where("task_name = ?, params[:task_name]).select(:task_counter)
+    StudyTask.where("task_name = ?, params[:task_name]).select(:maximum_hours)
+    StudyTask.where("task_name = ?, params[:task_name]).select(:minimum_hours)
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#Statements to update each field of a Task List in 'task_lists' individually.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+    StudyTask.where("task_name = ?, params[:task_name]).update(task_name: "name")
+    StudyTask.where("task_name = ?, params[:task_name]).update(average_hours: 5)
+    StudyTask.where("task_name = ?, params[:task_name]).update(task_counter: 5)
+    StudyTask.where("task_name = ?, params[:task_name]).update(maximum_hours: 5)
+    StudyTask.where("task_name = ?, params[:task_name]).update(minimum_hours: 5)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
