@@ -10,6 +10,10 @@ class StudiesController < ApplicationController
     @studies = Study.all
   end
 
+  def month_timeline
+    @studies = Study.all
+  end
+
   # GET /studies/1
   def show
   end

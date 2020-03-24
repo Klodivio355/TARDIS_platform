@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   get :study_hours_timeline, to: 'studies#study_hours_timeline'
+  get :month_timeline, to: 'studies#month_timeline'
   get :data_managers, to: 'users#data_managers'
   get :new_user, to: 'users#new'
 
