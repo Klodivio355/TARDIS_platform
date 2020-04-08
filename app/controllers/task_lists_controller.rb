@@ -21,6 +21,7 @@ class TaskListsController < ApplicationController
 
   # POST /task_lists
   def create
+    params.permit!
     @task_list = TaskList.new(task_list_params)
 
     if @task_list.save
@@ -53,6 +54,7 @@ class TaskListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task_list
+      params.permit!
       @task_list = TaskList.find(params[:id])
     end
 

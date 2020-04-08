@@ -1,5 +1,8 @@
 %h1 All study timelines
-
+= simple_form_for :search, url: search_studies_path, method: :post do |f|
+  = f.input :study_name
+  = f.submit 'Search'
+  = link_to 'Reset', studies_path
 %table
   %thead
     %tr
@@ -33,16 +36,11 @@
         %td= study.study_finished
         %td= link_to 'Show', study
         %td= link_to 'Edit', edit_study_path(study)
-        %td= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }
+        -#%td= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }
         %td= link_to 'Show Tasks', study_tasks_path(StudyTask.where(study_id: study.study_id))
-
-
-        = simple_form_for :search, url: search_studies_path, method: :post do |f|
-          = f.input :study_name
-          = f.submit 'Search'
-          = link_to 'Reset', studies_path
-
 %br
+
+
 
 = link_to 'New Study', new_study_path
 = link_to 'Listing Studies', studies_path

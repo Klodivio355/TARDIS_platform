@@ -1,5 +1,29 @@
 %p#notice= notice
 
+%p
+  %b Name:
+  = @task_list.task_name
+%p
+  %b Predicted Hours:
+  = @task_list.predicted_hours
+%p
+  %b Average Hours:
+  = @task_list.average_hours
+%p
+  %b Maximum Hours:
+  = @task_list.maximum_hours
+%p
+  %b Minimum Hours:
+  = @task_list.lead_hours_worked
+%p
+  %b Year :
+  = @task_list.year
+%p
+  %b Month :
+  = @task_list.month
+%p
+  %b Complete:
+  = @task_list.complete
 
 = link_to 'Edit', edit_task_list_path(@task_list)
 \|

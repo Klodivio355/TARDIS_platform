@@ -1,6 +1,6 @@
 class Study < ApplicationRecord
   validates :study_name, presence: true
-  has_many :task_lists
+
 
 
   def get_rel_task(arg)
