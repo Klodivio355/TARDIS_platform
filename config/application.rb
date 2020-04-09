@@ -10,7 +10,6 @@ module TardisProject
   class Application < Rails::Application
     # Send queued jobs to delayed_job
     config.active_job.queue_adapter = :delayed_job
-
     # This points to our own routes middleware to handle exceptions
     config.exceptions_app = self.routes
 
@@ -28,6 +27,7 @@ module TardisProject
                               view_specs: false,
                               integration_tool: false
     end
+
 
     config.action_mailer.smtp_settings = {
       address:              'mailhost.shef.ac.uk',

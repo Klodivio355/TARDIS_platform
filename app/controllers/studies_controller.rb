@@ -1,9 +1,14 @@
 class StudiesController < ApplicationController
-  before_action :set_study, only: [:show, :edit, :update, :destroy]
+  before_action :set_study, only: [:show, :edit, :update, :destroy,]
 
   # GET /studies
   def index
     @studies = Study.all
+  end
+
+  def index_tasks
+    id = params[:study_id]
+    @study_tasks = StudyTask.where(study_id: id)
   end
 
   def study_hours_timeline
@@ -54,7 +59,6 @@ class StudiesController < ApplicationController
     end
   end
 
-
   # DELETE /studies/1
   def destroy
     @study.destroy
@@ -64,6 +68,7 @@ class StudiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_study
+      params.permit!
       @study = Study.find(params[:id])
     end
 

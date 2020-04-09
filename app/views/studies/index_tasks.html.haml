@@ -1,0 +1,32 @@
+%h1 Listing specific study_tasks
+
+%table
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th Study
+      %th Backup Manager Hours
+      %th Lead Hours
+      %th Year
+      %th Month
+      %th Complete
+      %th
+      %th
+      %th
+
+  %tbody
+    - @study_tasks.each do |study_task|
+      %tr
+        %td= study_task.task_id
+        %td= study_task.task_name
+        %td= study_task.study_id
+        %td= study_task.backup_hours_worked
+        %td= study_task.lead_hours_worked
+        %td= study_task.year
+        %td= study_task.month
+        %td= study_task.complete
+        %td= link_to 'Show', study_task
+        %td= link_to 'Edit', edit_study_task_path(study_task)
+
+%br
