@@ -1,0 +1,8 @@
+= simple_form_for(@study_task) do |e|
+  = e.error_notification
+  = e.error_notification message: e.object.errors[:base].to_sentence if e.object.errors[:base].present?
+
+  - if (current_user.email == Study.where(study_id: 1).pluck(:backup_manager))
+    .form-inputs
+      = e.input :task_name
+      = e.input :backup_hours_worked

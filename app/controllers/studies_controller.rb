@@ -1,6 +1,5 @@
 class StudiesController < ApplicationController
-  before_action :set_study, only: [:show, :edit, :update, :destroy,]
-
+  before_action :set_study, only: [:hours_management, :show, :edit, :update, :destroy,]
   # GET /studies
   def index
     @studies = Study.all
@@ -9,6 +8,13 @@ class StudiesController < ApplicationController
   def index_tasks
     id = params[:study_id]
     @study_tasks = StudyTask.where(study_id: id)
+  end
+
+  def hours_management
+  end
+
+  def dm_studies
+    @studies = Study.where(lead_manager: current_user.email).or(Study.where(backup_manager: current_user.email))
   end
 
   def study_hours_timeline

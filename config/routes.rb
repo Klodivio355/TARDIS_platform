@@ -1,21 +1,24 @@
 Rails.application.routes.draw do
 
-
   resources :manager_hours
+  resources :studies
   resources :study_tasks do
     resources :studies
   end
   resources :task_lists
   resources :studies do
     post :search, on: :collection
-    resources :study_tasks
+    #resources :study_tasks
   end
 
   get :study_hours_timeline, to: 'studies#study_hours_timeline'
   get :month_timeline, to: 'studies#month_timeline'
   get :data_managers, to: 'users#data_managers'
   get :new_user, to: 'users#new'
+  get :dm_studies, to: 'studies#dm_studies'
+  #get :hours_management, to: 'studies#hours_management'
   #get :get_tasks, to: 'studies#index_tasks'
+  get '/studies/:id/hours_management(.:format)' => 'studies#hours_management', as: :hours_management
 
   devise_for :users
 

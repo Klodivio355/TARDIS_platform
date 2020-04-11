@@ -6,4 +6,8 @@ class PagesController < ApplicationController
     @current_nav_identifier = :home
   end
 
+  def hours_manag
+    @studies = Study.all
+  end
+
 end

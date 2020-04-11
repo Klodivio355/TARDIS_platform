@@ -1,0 +1,28 @@
+-# frozen_string_literal: true
+= simple_form_for(@study) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :study_name
+
+
+= simple_form_for(@study) do |e|
+  = e.error_notification
+  = e.error_notification message: e.object.errors[:base].to_sentence if e.object.errors[:base].present?
+
+  - if (current_user.email == @study.backup_manager)
+    .form-inputs
+      = e.input :backup_manager
+      = simple_form_for(StudyTask.where(study_id: @study.study_id, Study.where(backup)) do |z|
+        = z.error_notification
+        = z.error_notification message: z.object.errors[:base].to_sentence if z.object.errors[:base].present?
+
+        .form-inputs
+          = z.input :task_name
+          = z.input :backup_hours_worked
+
+
+
+
+

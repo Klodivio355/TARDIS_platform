@@ -1,0 +1,41 @@
+%h1 All studies you are working on
+
+
+%table
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th Stage
+      %th Type
+      %th Lead manager
+      %th Backup manager
+      %th Notes
+      %th Start date
+      %th LPLV
+      %th Complete
+      %th
+      %th
+      %th
+      %th
+
+
+  %tbody
+    - @studies.each do |study|
+      %tr
+        %td= study.id
+        %td= study.study_name
+        %td= study.stage
+        %td= study.type
+        %td= study.lead_manager
+        %td= study.backup_manager
+        %td= study.notes
+        %td= study.start_date
+        %td= study.lplv
+        %td= study.study_finished
+        %td= link_to 'Show', study
+        %td= link_to 'Edit', edit_study_path(study)
+        %td= link_to 'Tasks', get_tasks_path(study.study_id)
+        %td= link_to 'Hours', hours_management_path(study)
+
+%br
