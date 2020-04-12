@@ -6,6 +6,10 @@ class ManagerHoursController < ApplicationController
     @manager_hours = ManagerHour.all
   end
 
+  def dm_hours
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
   # GET /manager_hours/1
   def show
   end
