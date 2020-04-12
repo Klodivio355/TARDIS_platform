@@ -2,16 +2,17 @@
 = simple_form_for(@study_task) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  - if (!@study_task.complete)
+    .form-inputs
+    = f.input :task_name
+    = f.input :study_id
+    - if (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:backup_manager).first)
+      = f.input :backup_hours_worked
+    - elsif (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:lead_manager).first)
+      = f.input :lead_hours_worked
+    - else
+      = f.input :year
+      = f.input :month
 
-  .form-inputs
-  = f.input :task_id
-  = f.input :task_name
-  = f.input :study_id
-  = f.input :backup_hours_worked
-  = f.input :lead_hours_worked
-  = f.input :year
-  = f.input :month
-  = f.input :complete
-
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.button :submit

@@ -14,7 +14,7 @@
   - if (current_user.email == @study.backup_manager)
     .form-inputs
       = e.input :backup_manager
-      = simple_form_for(StudyTask.where(study_id: @study.study_id, Study.where(backup)) do |z|
+      = simple_form_for(StudyTask.where(study_id: @study.study_id)) do |z|
         = z.error_notification
         = z.error_notification message: z.object.errors[:base].to_sentence if z.object.errors[:base].present?
 
