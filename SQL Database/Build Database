@@ -3,7 +3,7 @@ create table studies
     study_id INT PRIMARY KEY,
     study_name     varchar(50)   null,
     stage          varchar(50)   null,
-    type           varchar(50)   null,
+    type_of        varchar(50)   null,
     lead_manager   varchar(50)   null,
     backup_manager varchar(50)   null,
     notes          varchar(1000) null,

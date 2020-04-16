@@ -1,4 +1,4 @@
-%h1 All study timelines
+%h1 Study List
 = simple_form_for :search, url: search_studies_path, method: :post do |f|
   = f.input :study_name
   = f.submit 'Search'
@@ -10,11 +10,13 @@
       %th Name
       %th Stage
       %th Type
-      %th Lead manager
-      %th Backup manager
+      %th Lead DM
+      %th Backup DM
       %th Notes
       %th Start date
       %th LPLV
+      %th Freeze
+      %th Lock
       %th Complete
       %th
       %th
@@ -26,21 +28,24 @@
         %td= study.id
         %td= study.study_name
         %td= study.stage
-        %td= study.type
+        %td= study.type_of
         %td= study.lead_manager
         %td= study.backup_manager
         %td= study.notes
-        %td= study.start_date
-        %td= study.lplv
+        %td= study.start_date.strftime('%d/%m/%Y')
+        %td= study.lplv.strftime('%d/%m/%Y')
+        %td= study.lplv.to_time.advance(:months => 1).to_date.strftime('%d/%m/%Y')
+        %td= study.lplv.to_time.advance(:months => 2).to_date.strftime('%d/%m/%Y')
         %td= study.study_finished
         %td= link_to 'Show', study
         %td= link_to 'Edit', edit_study_path(study)
         %td= link_to 'Tasks', get_tasks_path(study.study_id)
+        %td= link_to 'Add Task', add_related_task_path(study.study_id)
 %br
 
 
 
 = link_to 'New Study', new_study_path
-= link_to 'Listing Studies', studies_path
+-#= link_to 'Listing Studies', studies_path
 
 

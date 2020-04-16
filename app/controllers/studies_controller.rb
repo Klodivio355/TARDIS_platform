@@ -41,6 +41,7 @@ class StudiesController < ApplicationController
   # POST /studies
   def create
     params.permit!
+
     @study = Study.new(study_params)
 
     if @study.save

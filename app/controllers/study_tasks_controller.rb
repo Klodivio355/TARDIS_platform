@@ -13,7 +13,8 @@ class StudyTasksController < ApplicationController
 
   # GET /study_tasks/new
   def new
-    @study_task = StudyTask.new
+    id = params[:study_id]
+    @study_task = StudyTask.new(study_id: id)
   end
 
   # GET /study_tasks/1/edit

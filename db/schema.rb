@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "studies", primary_key: "study_id", id: :integer, default: nil, force: :cascade do |t|
+  create_table "studies", primary_key: "study_id", id: :serial, default: nil, force: :cascade do |t|
     t.string "study_name", limit: 50
     t.string "stage", limit: 50
-    t.string "type", limit: 50
+    t.string "type_of", limit: 50
     t.string "lead_manager", limit: 50
     t.string "backup_manager", limit: 50
     t.string "notes", limit: 1000
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.boolean "study_finished", null: false
   end
 
-  create_table "study_tasks", primary_key: "task_id", id: :integer, default: nil, force: :cascade do |t|
+  create_table "study_tasks", primary_key: "task_id", id: :serial, default: nil, force: :cascade do |t|
     t.string "task_name", limit: 50, null: false
     t.integer "study_id", null: false
     t.integer "backup_hours_worked"
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
 
   create_table "task_lists", primary_key: "task_name", id: :string, limit: 50, force: :cascade do |t|
     t.integer "predicted_hours"
-    t.integer "average_hours", null: false
+    t.integer "average_hours"
     t.integer "task_counter"
-    t.integer "maximum_hours", null: false
-    t.integer "minimum_hours", null: false
+    t.integer "maximum_hours"
+    t.integer "minimum_hours"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +104,5 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
   add_foreign_key "studies", "users", column: "lead_manager", primary_key: "email", name: "study_lead"
   add_foreign_key "study_tasks", "studies", primary_key: "study_id", name: "st_study_id"
   add_foreign_key "study_tasks", "task_lists", column: "task_name", primary_key: "task_name", name: "st_task_name"
+  change_column :studies, :study_id, :integer, auto_increment: true
 end

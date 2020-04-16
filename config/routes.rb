@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   match "/500", to: "errors#error_500", via: :all
 
   get '/get_tasks/:study_id' => 'studies#index_tasks', :as => :get_tasks
+  get '/study_tasks/new/:study_id(.:format)' => 'study_tasks#new', :as => :add_related_task
+
 
   get :ie_warning, to: 'errors#ie_warning'
   get :javascript_warning, to: 'errors#javascript_warning'

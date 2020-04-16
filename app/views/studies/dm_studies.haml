@@ -8,17 +8,17 @@
       %th Name
       %th Stage
       %th Type
-      %th Lead manager
-      %th Backup manager
+      %th Lead DM
+      %th Backup DM
       %th Notes
       %th Start date
       %th LPLV
+      %th Freeze
+      %th Lock
       %th Complete
       %th
       %th
       %th
-      %th
-
 
   %tbody
     - @studies.each do |study|
@@ -26,16 +26,18 @@
         %td= study.id
         %td= study.study_name
         %td= study.stage
-        %td= study.type
+        %td= study.type_of
         %td= study.lead_manager
         %td= study.backup_manager
         %td= study.notes
-        %td= study.start_date
-        %td= study.lplv
+        %td= study.start_date.strftime('%d/%m/%Y')
+        %td= study.lplv.strftime('%d/%m/%Y')
+        %td= study.lplv.to_time.advance(:months => 1).to_date.strftime('%d/%m/%Y')
+        %td= study.lplv.to_time.advance(:months => 2).to_date.strftime('%d/%m/%Y')
         %td= study.study_finished
         %td= link_to 'Show', study
         %td= link_to 'Edit', edit_study_path(study)
         %td= link_to 'Tasks', get_tasks_path(study.study_id)
-        %td= link_to 'Hours', hours_management_path(study)
+%br
 
 %br

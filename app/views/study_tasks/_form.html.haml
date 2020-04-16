@@ -6,10 +6,14 @@
     .form-inputs
     = f.input :task_name
     = f.input :study_id
-    - if (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:backup_manager).first)
+    = f.input :complete
+    - if (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:backup_manager).first && current_user.email == Study.where(study_id: @study_task.study_id).pluck(:lead_manager).first)
+      = f.input :lead_hours_worked
       = f.input :backup_hours_worked
     - elsif (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:lead_manager).first)
       = f.input :lead_hours_worked
+    - elsif (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:backup_manager).first)
+      = f.input :backup_hours_worked
     - else
       = f.input :year
       = f.input :month
