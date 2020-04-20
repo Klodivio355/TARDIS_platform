@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.integer "study_id", null: false
     t.integer "backup_hours_worked"
     t.integer "lead_hours_worked"
+    t.integer "guest_hours_worked"
     t.integer "year"
     t.integer "month"
     t.boolean "complete", null: false

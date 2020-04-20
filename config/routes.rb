@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   #get :hours_management, to: 'studies#hours_management'
   #get :get_tasks, to: 'studies#index_tasks'
   get '/studies/:id/hours_management(.:format)' => 'studies#hours_management', as: :hours_management
+  get :show_dm_hours, to: 'manager_hours#new'
 
   devise_for :users
 
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
 
   get '/get_tasks/:study_id' => 'studies#index_tasks', :as => :get_tasks
   get '/study_tasks/new/:study_id(.:format)' => 'study_tasks#new', :as => :add_related_task
+  get '/study_tasks/guest/:study_id(.:format)' => 'study_tasks#guest', :as => :add_hours_guest
 
 
   get :ie_warning, to: 'errors#ie_warning'

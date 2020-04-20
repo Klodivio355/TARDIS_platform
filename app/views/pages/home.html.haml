@@ -1,39 +1,47 @@
 - content_for :title, "Home"
+- if current_user && current_user.admin
 
-.jumbotron.mb-3
-  %h1.display-5 Time and Resourcing Data Information System
-  %p.lead Made by Team 4.
-  %p
-    As an Admin : Getting Study List
-    = link_to 'Click', 'studies'
-  %p
-    As an Admin : Getting Study Hours Timeline
-    = link_to 'Click', 'study_hours_timeline'
-    for icons.
+  .jumbotron.mb-3
+    %h1.display-5 Time and Resourcing Data Information System
+    %p.lead Made by Team 4.
     %p
-    As an Admin : Getting Task List Hours
-    = link_to 'Click', 'task_lists'
-    for icons.
+      As an Admin : Getting Study List
+      = link_to 'Click', 'studies'
     %p
-    As an Admin : Getting Month Timeline
-    = link_to 'Click', 'month_timeline'
-    for icons.
+      As an Admin : Getting Study Hours Timeline
+      = link_to 'Click', 'study_hours_timeline'
+      for icons.
+      %p
+      As an Admin : Getting Task List Hours
+      = link_to 'Click', 'task_lists'
+      for icons.
+      %p
+      As an Admin : Getting Month Timeline
+      = link_to 'Click', 'month_timeline'
+      for icons.
+      %p
+      As an Admin : Manage Data Managers
+      = link_to 'Click', 'data_managers'
+      for icons.
+      %p
+      As an Admin : Getting Data Manager Hours
+      = link_to 'Click', 'manager_hours'
+      for icons.
+- else
+  .jumbotron.mb-3
+    %h1.display-5 Time and Resourcing Data Information System
+    %p.lead Made by Team 4.
     %p
-    As an Admin : Manage Data Managers
-    = link_to 'Click', 'data_managers'
-    for icons.
+      As an Admin : Getting Study List
+      = link_to 'Click', 'studies'
     %p
-    As an Admin : Getting Data Manager Hours
-    = link_to 'Click', 'manager_hours'
-    for icons.
+      As a DM : Getting Study List
+      = link_to 'Click', 'dm_studies'
+      for icons.
     %p
-    As a DM : Getting Study List
-    = link_to 'Click', 'dm_studies'
-    for icons.
-    %p
-    As a DM : Getting own hours
-    = link_to 'Click', 'dm_hours'
-    for icons.
+      As a DM : Getting own hours
+      = link_to 'Click', 'dm_hours'
+      for icons.
 
 -#.card.mb-3
 -#  .card-header

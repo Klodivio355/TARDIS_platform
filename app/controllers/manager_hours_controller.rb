@@ -25,10 +25,11 @@ class ManagerHoursController < ApplicationController
 
   # POST /manager_hours
   def create
+    params.permit!
     @manager_hour = ManagerHour.new(manager_hour_params)
 
     if @manager_hour.save
-      redirect_to @manager_hour, notice: 'Manager hour was successfully created.'
+      redirect_to show_dm_hours_path, notice: 'Manager hour was successfully created.'
     else
       render :new
     end

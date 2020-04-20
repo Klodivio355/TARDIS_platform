@@ -11,8 +11,15 @@ class StudyTasksController < ApplicationController
   def show
   end
 
+
   # GET /study_tasks/new
   def new
+    id = params[:study_id]
+    @study_task = StudyTask.new(study_id: id)
+  end
+
+
+  def guest
     id = params[:study_id]
     @study_task = StudyTask.new(study_id: id)
   end

@@ -39,10 +39,10 @@
                 = navbar_link_to :root, title: "Go to the home page", identifier: :home do
                   = icon 'fas', 'home'
                   Home
-              - if current_user && current_user.admin
-                = navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
-                  = icon 'fas', 'add_users'
-                  Add Users
+              -#- if current_user && current_user.admin
+              -#  = navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
+              -#    = icon 'fas', 'add_users'
+              -#    Add Users
 
               - if user_signed_in?
                 %ul.nav.navbar-nav.ml-auto
