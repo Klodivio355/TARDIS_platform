@@ -43,10 +43,10 @@ class StudyTasksController < ApplicationController
   end
 
   # DELETE /study_tasks/1
-  def destroy
-    @study_task.destroy
-    redirect_to study_tasks_url, notice: 'Study task was successfully destroyed.'
-  end
+#  def destroy
+#    @study_task.destroy
+#    redirect_to study_tasks_url, notice: 'Study task was successfully destroyed.'
+#  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
