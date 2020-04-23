@@ -15,12 +15,12 @@
           %th.col-1 Notes
           %th.col-1 Recruitment Start
           %th.col-1 LPLV
-          %th.col-1 Freeze
-          %th.col-1 Lock
+          %th.col-1 Freeze -# 1 month after LPLV
+          %th.col-1 Lock -# 2 months after LPLV
           %th.col-1 Complete
-          -#%th
-          -#%th
-          -#%th
+          %th.col-1
+          %th.col-1
+          %th.col-1
 
   %tbody
     - @studies.each do |study|
@@ -37,9 +37,9 @@
         %td.col-1= study.lplv.to_time.advance(:months => 1).to_date.strftime('%d/%m/%Y')
         %td.col-1= study.lplv.to_time.advance(:months => 2).to_date.strftime('%d/%m/%Y')
         %td.col-1= study.study_finished
-        -#%td= link_to 'Show', study
-        -#%td= link_to 'Edit', edit_study_path(study)
-        -#%td= link_to 'Tasks', get_tasks_path(study.study_id)
+        %td.col-1= link_to 'Show', study
+        %td.col-1= link_to 'Edit', edit_study_path(study)
+        %td.col-1= link_to 'Tasks', get_tasks_path(study.study_id)
   %br
 
   %br

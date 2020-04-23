@@ -26,7 +26,12 @@
 
     #wrap
       %header
-        %nav#main-nav.navbar.navbar-dark.bg-dark.navbar-expand-lg.fixed-top
+
+        .head-div.bg-grey
+          Clinical Trials Research Unit
+          
+
+        %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
           .container
             .navbar-header
               = link_to :root, class: 'navbar-brand hidden-sm' do
@@ -39,6 +44,10 @@
                 = navbar_link_to :root, title: "Go to the home page", identifier: :home do
                   = icon 'fas', 'home'
                   Home
+                = navbar_link_to :root, title: "Go to the home page", identifier: :home do
+                  = icon 'fas', 'home'
+                  Home2
+
               -#- if current_user && current_user.admin
               -#  = navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
               -#    = icon 'fas', 'add_users'

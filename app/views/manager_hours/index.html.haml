@@ -1,149 +1,151 @@
-%h1 Data Manager Working Hours
-%h2 Listing Available Hours
-%table
-  %thead
-    %tr
-      %th Data Manager
-      %th January
-      %th February
-      %th March
-      %th April
-      %th May
-      %th June
-      %th July
-      %th August
-      %th September
-      %th October
-      %th November
-      %th December
+.grouping
+  %h1 Data Manager Working Hours
 
-  %tbody
-    - @manager_hours.pluck('email').uniq.each do |manager_hour|
+  %h2 Listing Available Hours
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= manager_hour
-        %th= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('available_hours').first
-        %th= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('available_hours').first
-        %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('available_hours').first
-%br
+        %th Data Manager
+        %th Jan
+        %th Feb
+        %th Mar
+        %th Apr
+        %th May
+        %th Jun
+        %th Jul
+        %th Aug
+        %th Sep
+        %th Oct
+        %th Nov
+        %th Dec
 
-%h2 Listing Allocated Hours
-%table
-  %thead
-    %tr
-      %th Data Manager
-      %th January
-      %th February
-      %th March
-      %th April
-      %th May
-      %th June
-      %th July
-      %th August
-      %th September
-      %th October
-      %th November
-      %th December
+    %tbody
+      - @manager_hours.pluck('email').uniq.each do |manager_hour|
+        %tr
+          %td= manager_hour
+          %td= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('available_hours').first
+          %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('available_hours').first
+  %br
 
-  %tbody
-    - @manager_hours.pluck('email').uniq.each do |manager_hour|
+  %h2 Listing Allocated Hours
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= manager_hour
-        %th= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('allocated_hours').first
-        %th= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('allocated_hours').first
+        %th Data Manager
+        %th Jan
+        %th Feb
+        %th Mar
+        %th Apr
+        %th May
+        %th Jun
+        %th Jul
+        %th Aug
+        %th Sep
+        %th Oct
+        %th Nov
+        %th Dec
 
-%br
+    %tbody
+      - @manager_hours.pluck('email').uniq.each do |manager_hour|
+        %tr
+          %td= manager_hour
+          %td= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('allocated_hours').first
+          %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('allocated_hours').first
 
-%h2 Listing Spare Hours
-%table
-  %thead
-    %tr
-      %th Data Manager
-      %th January
-      %th February
-      %th March
-      %th April
-      %th May
-      %th June
-      %th July
-      %th August
-      %th September
-      %th October
-      %th November
-      %th December
+  %br
 
-  %tbody
-    - @manager_hours.pluck('email').uniq.each do |manager_hour|
+  %h2 Listing Spare Hours
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= manager_hour
-        %th= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('spare_hours').first
-        %th= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('spare_hours').first
+        %th Data Manager
+        %th Jan
+        %th Feb
+        %th Mar
+        %th Apr
+        %th May
+        %th Jun
+        %th Jul
+        %th Aug
+        %th Sep
+        %th Oct
+        %th Nov
+        %th Dec
 
-%br
+    %tbody
+      - @manager_hours.pluck('email').uniq.each do |manager_hour|
+        %tr
+          %td= manager_hour
+          %td= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('spare_hours').first
+          %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('spare_hours').first
 
-%h2 Listing Holiday Hours
-%table
-  %thead
-    %tr
-      %th Data Manager
-      %th January
-      %th February
-      %th March
-      %th April
-      %th May
-      %th June
-      %th July
-      %th August
-      %th September
-      %th October
-      %th November
-      %th December
+  %br
 
-  %tbody
-    - @manager_hours.pluck('email').uniq.each do |manager_hour|
+  %h2 Listing Holiday Hours
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= manager_hour
-        %th= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('holiday_hours').first
-        %th= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('holiday_hours').first
+        %th Data Manager
+        %th Jan
+        %th Feb
+        %th Mar
+        %th Apr
+        %th May
+        %th Jun
+        %th Jul
+        %th Aug
+        %th Sep
+        %th Oct
+        %th Nov
+        %th Dec
 
-%br
+    %tbody
+      - @manager_hours.pluck('email').uniq.each do |manager_hour|
+        %tr
+          %td= manager_hour
+          %td= ManagerHour.where(year: 2020, month: 1, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 2, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 3, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 4, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 5, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 6, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 7, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 8, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 9, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('holiday_hours').first
+          %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('holiday_hours').first
 
-= link_to 'New Manager hour', new_manager_hour_path
+  %br
+
+  = link_to 'New Manager hour', new_manager_hour_path
