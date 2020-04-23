@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.integer "guest_hours_worked"
     t.integer "year"
     t.integer "month"
-    t.boolean "complete", null: false
+    t.boolean "complete", null: false, default: false
   end
 
   create_table "task_lists", primary_key: "task_name", id: :string, limit: 50, force: :cascade do |t|
