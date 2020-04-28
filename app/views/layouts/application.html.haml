@@ -29,7 +29,7 @@
 
         .head-div.bg-grey
           Clinical Trials Research Unit
-          
+
 
         %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
           .container
@@ -41,17 +41,52 @@
 
             .collapse.navbar-collapse#navbar-content
               %ul.nav.navbar-nav
-                = navbar_link_to :root, title: "Go to the home page", identifier: :home do
-                  = icon 'fas', 'home'
-                  Home
-                = navbar_link_to :root, title: "Go to the home page", identifier: :home do
-                  = icon 'fas', 'home'
-                  Home2
+                -#= navbar_link_to :root, title: "Go to the home page", identifier: :home do
+                  -#= icon 'fas', 'home'
+                  -#Home
 
-              -#- if current_user && current_user.admin
-              -#  = navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
-              -#    = icon 'fas', 'add_users'
-              -#    Add Users
+                - if current_user
+                  = navbar_link_to 'studies', title: "View Study List", identifier: :study_list do
+                    = icon 'fas', 'study_list'
+                    Studies
+
+                  - if current_user.admin
+                    = navbar_link_to 'study_hours_timeline', title: "View Lead & Backup DM Hours Per Month", identifier: :study_hours_timeline do
+                      = icon 'fas', 'study_hours_timeline'
+                      Study Hours
+
+                    = navbar_link_to 'task_lists', title: "View Available Tasks & Details", identifier: :task_list do
+                      = icon 'fas', 'task_list'
+                      Tasks
+
+                    = navbar_link_to 'month_timeline', title: "View Month Timeline For All Studies", identifier: :months_timeline do
+                      = icon 'fas', 'months_timeline'
+                      Month Timeline
+
+                    = navbar_link_to 'data_managers', title: "Manage All Data Managers", identifier: :all_managers do
+                      = icon 'fas', 'all_managers'
+                      Data Managers
+
+                    = navbar_link_to 'manager_hours', title: "View Data Manager Working Hours", identifier: :manager_working_hours do
+                      = icon 'fas', 'manager_working_hours'
+                      Manager Hours
+
+                  - else
+                    = navbar_link_to 'dm_studies', title: "Getting Study Lists", identifier: :dm_studies_lists do
+                      = icon 'fas', 'dm_studies_lists'
+                      Current Studies
+
+                    = navbar_link_to 'dm_hours', title: "Getting own hours", identifier: :dm_hours_lists do
+                      = icon 'fas', 'dm_hours_lists'
+                      Hours Worked
+
+
+
+
+
+                  -#= navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
+                    -#= icon 'fas', 'add_users'
+                    -#Add Users
 
               - if user_signed_in?
                 %ul.nav.navbar-nav.ml-auto
