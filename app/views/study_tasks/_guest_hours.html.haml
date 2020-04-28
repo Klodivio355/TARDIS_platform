@@ -1,17 +1,18 @@
--# frozen_string_literal: true
-= simple_form_for(@study_task) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+.grouping
+  -# frozen_string_literal: true
+  = simple_form_for(@study_task) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .form-inputs
-    = f.input :study_id
-    = f.input :task_name
-    = f.input :guest_hours_worked
-    = f.input :complete
-
-
-
+    .form-inputs
+      = f.input :study_id
+      = f.input :task_name
+      = f.input :guest_hours_worked
+      = f.input :complete
 
 
-  .form-actions
-    = f.button :submit
+
+
+
+    .form-actions
+      = f.button :submit

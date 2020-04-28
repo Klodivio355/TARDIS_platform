@@ -1,35 +1,34 @@
-%h1 Tasks Allocated to a Study
+.grouping
+  %h1 Tasks Allocated to a Study
+  .scrollable
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th ID
+          %th Name
+          %th Study
+          %th Lead DM Hours
+          %th Backup DM Hours
+          %th Year
+          %th Month
+          %th Complete
 
-%table
-  %thead
-    %tr
-      %th ID
-      %th Name
-      %th Study
-      %th Lead DM Hours
-      %th Backup DM Hours
-      %th Year
-      %th Month
-      %th Complete
-      %th
-      %th
-      %th
 
-  %tbody
-    - @study_tasks.each do |study_task|
-      %tr
-        %td= study_task.task_id
-        %td= study_task.task_name
-        %td= study_task.study_id
-        %td= study_task.lead_hours_worked
-        %td= study_task.backup_hours_worked
-        %td= study_task.year
-        %td= study_task.month
-        %td= study_task.complete
-        %td= link_to 'Show', study_task
-        %td= link_to 'Edit', edit_study_task_path(study_task)
-        -#%td= link_to 'Destroy', study_task, method: :delete, data: { confirm: 'Are you sure?' }
+      %tbody
+        - @study_tasks.each do |study_task|
+          %tr
+            %td= study_task.task_id
+            %td= study_task.task_name
+            %td= study_task.study_id
+            %td= study_task.lead_hours_worked
+            %td= study_task.backup_hours_worked
+            %td= study_task.year
+            %td= study_task.month
+            %td= study_task.complete
+            %td= link_to 'Show', study_task
+            %td= link_to 'Edit', edit_study_task_path(study_task)
+            -#%td= link_to 'Destroy', study_task, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+  %br
 
-= link_to 'New Study task', new_study_task_path
+  = link_to 'New Study task', new_study_task_path

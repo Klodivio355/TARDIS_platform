@@ -1,19 +1,20 @@
-%p#notice= notice
+.grouping
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @task_list.task_name
-%p
-  %b Predicted Hours:
-  = @task_list.predicted_hours
-%p
-  %b Average Hours:
-  = @task_list.average_hours
-%p
-  %b Maximum Hours:
-  = @task_list.maximum_hours
+  %p
+    %b Name:
+    = @task_list.task_name
+  %p
+    %b Predicted Hours:
+    = @task_list.predicted_hours
+  %p
+    %b Average Hours:
+    = @task_list.average_hours
+  %p
+    %b Maximum Hours:
+    = @task_list.maximum_hours
 
 
-= link_to 'Edit', edit_task_list_path(@task_list)
-\|
-= link_to 'Back', task_lists_path
+  = link_to 'Edit', edit_task_list_path(@task_list)
+  \|
+  = link_to 'Back', task_lists_path

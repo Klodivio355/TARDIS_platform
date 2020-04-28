@@ -1,29 +1,31 @@
-%table
-  %thead
-    %tr
-      %th ID
-      %th Email
-      %th Username
-      %th Admin
-      %th
-      %th
-      %th
-      %th
+.grouping
+  .scrollable
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th ID
+          %th Email
+          %th Username
+          %th Admin
+          %th
+          %th
+          %th
+          %th
 
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.id
-        %td= user.email
-        %td= user.username
-        %td= user.admin
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-        %td= link_to 'Show Studies', studies_path(Study.where(lead_manager: user.email))
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.email
+            %td= user.username
+            %td= user.admin
+            %td= link_to 'Show', user
+            %td= link_to 'Edit', edit_user_path(user)
+            %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+            %td= link_to 'Show Studies', studies_path(Study.where(lead_manager: user.email))
 
 
-%br
+  %br
 
-= link_to 'New User', new_user_path
-= link_to 'Listing Users', users_path
+  = link_to 'New User', new_user_path
+  = link_to 'Listing Users', users_path

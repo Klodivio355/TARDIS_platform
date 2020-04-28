@@ -6,46 +6,44 @@
     = link_to 'Reset', studies_path
 
   %br
-  
+
   .scrollable
     %table.table.table-bordered
       %thead
-        %tr.d-flex
-          %th.col-1 ID
-          %th.col-1 Name
-          %th.col-1 Stage
-          %th.col-1 Type
-          %th.col-1 Lead DM
-          %th.col-1 Backup DM
-          %th.col-1 Notes
-          %th.col-1 Start date
-          %th.col-1 LPLV
-          %th.col-1 Freeze
-          %th.col-1 Lock
-          %th.col-1 Complete
-          %th.col-1
-          %th.col-1
-          %th.col-1
+        %tr
+          %th ID
+          %th Name
+          %th Stage
+          %th Type
+          %th Lead DM
+          %th Backup DM
+          %th Notes
+          %th Start date
+          %th LPLV
+          %th Freeze
+          %th Lock
+          %th Complete
+
 
       %tbody
         - @studies.each do |study|
-          %tr.d-flex
-            %td.col-1= study.id
-            %td.col-1= study.study_name
-            %td.col-1= study.stage
-            %td.col-1= study.type_of
-            %td.col-1= study.lead_manager
-            %td.col-1= study.backup_manager
-            %td.col-1= study.notes
-            %td.col-1= study.start_date.strftime('%d/%m/%Y')
-            %td.col-1= study.lplv.strftime('%d/%m/%Y')
-            %td.col-1= study.lplv.to_time.advance(:months => 1).to_date.strftime('%d/%m/%Y')
-            %td.col-1= study.lplv.to_time.advance(:months => 2).to_date.strftime('%d/%m/%Y')
-            %td.col-1= study.study_finished
-            %td.col-1= link_to 'Show', study
-            %td.col-1= link_to 'Edit', edit_study_path(study)
-            %td.col-1= link_to 'Tasks', get_tasks_path(study.study_id)
-            %td.col-1= link_to 'Add Task', add_related_task_path(study.study_id)
+          %tr
+            %td= study.id
+            %td= study.study_name
+            %td= study.stage
+            %td= study.type_of
+            %td= study.lead_manager
+            %td= study.backup_manager
+            %td= study.notes
+            %td= study.start_date.strftime('%d/%m/%Y')
+            %td= study.lplv.strftime('%d/%m/%Y')
+            %td= study.lplv.to_time.advance(:months => 1).to_date.strftime('%d/%m/%Y')
+            %td= study.lplv.to_time.advance(:months => 2).to_date.strftime('%d/%m/%Y')
+            %td= study.study_finished
+            %td= link_to 'Show', study
+            %td= link_to 'Edit', edit_study_path(study)
+            %td= link_to 'Tasks', get_tasks_path(study.study_id)
+            %td= link_to 'Add Task', add_related_task_path(study.study_id)
             -#%td= link_to 'Add Hours as Guest', edit_study_path(study)
   %br
 
