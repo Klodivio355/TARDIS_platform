@@ -2,13 +2,13 @@
   %h1 Study List
   = simple_form_for :search, url: search_studies_path, method: :post do |f|
     = f.input :study_name
-    = f.submit 'Search'
-    = link_to 'Reset', studies_path
+    = f.submit 'Search', class: "btn btn-outline-dark"
+    = link_to 'Reset', studies_path, class: "btn btn-outline-dark"
 
   %br
 
   .scrollable
-    %table.table.table-bordered
+    %table.table.table-bordered.table-hover
       %thead
         %tr
           %th ID
@@ -49,5 +49,5 @@
 
 
 
-  = link_to 'New Study', new_study_path
+  = link_to 'New Study', new_study_path, class: "btn btn-outline-dark"
   -#= link_to 'Listing Studies', studies_path

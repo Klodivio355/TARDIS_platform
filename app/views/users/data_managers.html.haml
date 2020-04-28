@@ -2,7 +2,7 @@
   %h1 Listing Users
 
   .scrollable
-    %table.table.table-bordered
+    %table.table.table-bordered.table-hover
       %thead
         %tr
           %th Email
@@ -17,4 +17,4 @@
             %td= user.admin
   %br
 
-  = link_to 'New User', new_user_path
+  = link_to 'New User', new_user_path, class: "btn btn-outline-dark"
