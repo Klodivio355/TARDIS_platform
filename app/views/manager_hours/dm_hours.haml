@@ -128,6 +128,8 @@
         %th Oct
         %th Nov
         %th Dec
+        %th
+
 
     %tbody
       - @manager_hours.pluck('email').uniq.each do |manager_hour|
@@ -145,7 +147,11 @@
           %td= ManagerHour.where(year: 2020, month: 10, email: manager_hour).pluck('holiday_hours').first
           %td= ManagerHour.where(year: 2020, month: 11, email: manager_hour).pluck('holiday_hours').first
           %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('holiday_hours').first
-
   %br
 
+<<<<<<< Updated upstream
   = link_to 'New Manager hour', new_manager_hour_path, class: "btn btn-outline-dark"
+=======
+  = link_to 'New Manager hour', new_manager_hour_path
+  = link_to 'Edit', edit_manager_hour_path
+>>>>>>> Stashed changes

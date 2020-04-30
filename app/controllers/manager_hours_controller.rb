@@ -20,6 +20,10 @@ class ManagerHoursController < ApplicationController
   end
 
   # GET /manager_hours/1/edit
+  def edite
+    @manager_hour = ManagerHour.new
+  end
+
   def edit
   end
 
@@ -27,7 +31,6 @@ class ManagerHoursController < ApplicationController
   def create
     params.permit!
     @manager_hour = ManagerHour.new(manager_hour_params)
-
     if @manager_hour.save
       redirect_to show_dm_hours_path, notice: 'Manager hour was successfully created.'
     else

@@ -1,0 +1,17 @@
+-# frozen_string_literal: true
+= simple_form_for(@manager_hours) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :email
+    = f.input :available_hours
+    = f.input :allocated_hours
+    = f.input :holiday_hours
+    = f.input :spare_hours
+    = f.input :year
+    = f.input :month
+
+
+  .form-actions
+    = f.button :submit
