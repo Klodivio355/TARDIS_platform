@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
   create_table "task_lists", primary_key: "task_name", id: :string, limit: 50, force: :cascade do |t|
     t.integer "predicted_hours"
     t.integer "average_hours"
-    t.integer "task_counter"
+    # t.integer "task_counter", default: 0
     t.integer "maximum_hours"
     t.integer "minimum_hours"
   end

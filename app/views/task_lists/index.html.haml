@@ -23,7 +23,6 @@
             %td=StudyTask.where(complete: true, task_name: task_list.task_name).pluck('lead_hours_worked', 'backup_hours_worked', 'guest_hours_worked').map(&:sum).inject(:+).to_f / StudyTask.where(complete: true, task_name: task_list.task_name).pluck('lead_hours_worked', 'backup_hours_worked', 'guest_hours_worked').map(&:sum).length
             %td=StudyTask.where(complete: true, task_name: task_list.task_name).pluck('lead_hours_worked', 'backup_hours_worked', 'guest_hours_worked').map(&:sum).max
             %td=StudyTask.where(complete: true, task_name: task_list.task_name).pluck('lead_hours_worked', 'backup_hours_worked', 'guest_hours_worked').map(&:sum).min
-            %td=link_to 'Show', task_list
             %td=link_to 'Edit', edit_task_list_path(task_list)
             %td=link_to 'Destroy', task_list, method: :delete, data: { confirm: 'Are you sure?' }
 

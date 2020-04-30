@@ -1,8 +1,27 @@
+<<<<<<< HEAD
 .grouping
   %h1 Assign Manager Hours
+=======
+- if current_user.admin
+
+  .grouping
+    %h1 New manager_hour
+
+    = render 'form2'
+
+    %br
+
+    = link_to 'Back', manager_hours_path, class: "btn btn-outline-dark"
+
+- else
+  .grouping
+  %h1 New manager_hour
+>>>>>>> Fixed group meeting reported issues
 
   = render 'form'
 
   %br
-  
-  = link_to 'Back', manager_hours_path, class: "btn btn-outline-dark"
+
+  = link_to 'Back', dm_hours_path, class: "btn btn-outline-dark"
+
+
