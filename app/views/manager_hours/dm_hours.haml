@@ -1,6 +1,8 @@
 .grouping
   %h1 Data Manager Working Hours
 
+
+
   %h2 Listing Available Hours
   %table.table.table-bordered.table-hover
     %thead
@@ -149,9 +151,5 @@
           %td= ManagerHour.where(year: 2020, month: 12, email: manager_hour).pluck('holiday_hours').first
   %br
 
-<<<<<<< Updated upstream
   = link_to 'New Manager hour', new_manager_hour_path, class: "btn btn-outline-dark"
-=======
-  = link_to 'New Manager hour', new_manager_hour_path
-  = link_to 'Edit', edit_manager_hour_path
->>>>>>> Stashed changes
+

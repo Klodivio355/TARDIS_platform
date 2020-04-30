@@ -4,7 +4,7 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :email
+    = f.input :email, input_html: {value: current_user.email}, :readonly => true
     = f.input :available_hours
     = f.input :allocated_hours
     = f.input :holiday_hours
