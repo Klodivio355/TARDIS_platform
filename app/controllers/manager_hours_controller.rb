@@ -45,10 +45,52 @@ class ManagerHoursController < ApplicationController
     def index_2030
     @manager_hours = ManagerHour.all
   end
+#---------------------------------------------------------------------------------------
 
   def dm_hours
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
+
+    def dm_hours_2021
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2022
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2023
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2024
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2025
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2026
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2027
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2028
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+    def dm_hours_2029
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+  
+    def dm_hours_2030
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+  #---------------------------------------------------------------------------------------
 
   # GET /manager_hours/1
   def show

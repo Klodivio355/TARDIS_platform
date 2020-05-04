@@ -18,6 +18,17 @@ Rails.application.routes.draw do
   get :dm_studies, to: 'studies#dm_studies'
 
   get :dm_hours, to: 'manager_hours#dm_hours'
+  get :dm_hours, to: 'manager_hours#dm_hours_2021'
+  get :dm_hours, to: 'manager_hours#dm_hours_2022'
+  get :dm_hours, to: 'manager_hours#dm_hours_2023'
+  get :dm_hours, to: 'manager_hours#dm_hours_2024'
+  get :dm_hours, to: 'manager_hours#dm_hours_2025'
+  get :dm_hours, to: 'manager_hours#dm_hours_2026'
+  get :dm_hours, to: 'manager_hours#dm_hours_2027'
+  get :dm_hours, to: 'manager_hours#dm_hours_2028'
+  get :dm_hours, to: 'manager_hours#dm_hours_2029'
+  get :dm_hours, to: 'manager_hours#dm_hours_2030'
+  
   
   #get :hours_management, to: 'studies#hours_management'
   #get :get_tasks, to: 'studies#index_tasks'
