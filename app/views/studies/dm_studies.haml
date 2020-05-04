@@ -20,7 +20,6 @@
           %th Complete
           %th
           %th
-          %th
 
       %tbody
         - @studies.each do |study|
@@ -37,7 +36,6 @@
             %td= study.lplv.to_time.advance(:months => 1).to_date.strftime('%d/%m/%Y')
             %td= study.lplv.to_time.advance(:months => 2).to_date.strftime('%d/%m/%Y')
             %td= study.study_finished
-            %td= link_to 'Show', study
             %td= link_to 'Edit', edit_study_path(study)
             %td= link_to 'Tasks', get_tasks_path(study.study_id)
   %br

@@ -21,7 +21,43 @@ class StudiesController < ApplicationController
     @studies = Study.all
   end
 
-  def month_timeline
+  def study_hours_timeline_2021
+    @studies = Study.all
+  end
+
+  def study_hours_timeline_2022
+    @studies = Study.all
+  end
+
+  def study_hours_timeline_2023
+    @studies = Study.all
+  end
+
+  def study_hours_timeline_2024
+    @studies = Study.all
+  end
+
+  def study_hours_timeline_2025
+    @studies = Study.all
+  end
+
+  def month_timeline_2026
+    @studies = Study.all
+  end
+
+  def month_timeline_2027
+    @studies = Study.all
+  end
+
+  def month_timeline_2028
+    @studies = Study.all
+  end
+
+  def month_timeline_2029
+    @studies = Study.all
+  end
+
+  def month_timeline_2030
     @studies = Study.all
   end
 
@@ -32,6 +68,7 @@ class StudiesController < ApplicationController
   # GET /studies/new
   def new
     @study = Study.new
+
   end
 
   # GET /studies/1/edit

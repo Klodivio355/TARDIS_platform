@@ -33,6 +33,17 @@ Rails.application.routes.draw do
   get '/study_tasks/new/:study_id(.:format)' => 'study_tasks#new', :as => :add_related_task
   get '/study_tasks/guest/:study_id(.:format)' => 'study_tasks#guest', :as => :add_hours_guest
 
+  get :sh_timeline_2021, to: 'studies#study_hours_timeline_2021'
+  get :sh_timeline_2022, to: 'studies#study_hours_timeline_2022'
+  get :sh_timeline_2023, to: 'studies#study_hours_timeline_2023'
+  get :sh_timeline_2024, to: 'studies#study_hours_timeline_2024'
+  get :sh_timeline_2025, to: 'studies#study_hours_timeline_2025'
+  get :sh_timeline_2026, to: 'studies#study_hours_timeline_2026'
+  get :sh_timeline_2027, to: 'studies#study_hours_timeline_2027'
+  get :sh_timeline_2028, to: 'studies#study_hours_timeline_2028'
+  get :sh_timeline_2029, to: 'studies#study_hours_timeline_2029'
+  get :sh_timeline_2030, to: 'studies#study_hours_timeline_2030'
+
 
 
 
@@ -40,7 +51,7 @@ Rails.application.routes.draw do
   get :ie_warning, to: 'errors#ie_warning'
   get :javascript_warning, to: 'errors#javascript_warning'
 
-  root to: "pages#home"
+  root to: 'studies#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

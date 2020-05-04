@@ -1,0 +1,87 @@
+.grouping
+
+  %h1 Study Hours Timeline
+
+  .scrollable
+    %table.table.table-bordered.table-hover
+      %thead
+        %tr
+          %th ID
+          %th Name
+          %th Lead Manager
+          %th Backup Manager
+          %th{:colspan => 2} January
+          %th{:colspan => 2} February
+          %th{:colspan => 2} March
+          %th{:colspan => 2} April
+          %th{:colspan => 2} May
+          %th{:colspan => 2} June
+          %th{:colspan => 2} July
+          %th{:colspan => 2} August
+          %th{:colspan => 2} September
+          %th{:colspan => 2} October
+          %th{:colspan => 2} November
+          %th{:colspan => 2} December
+        %tr
+          %td
+          %td
+          %td
+          %td
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+          %td Lead
+          %td Backup
+
+      %tbody
+        - @studies.each do |study|
+          %tr
+            %td= study.study_id
+            %td= study.study_name
+            %td= study.lead_manager
+            %td= study.backup_manager
+            %td= StudyTask.where(study_id: study.study_id, month: 1, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 1, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 2, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 2, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 3, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 3, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 4, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 4, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 5, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 5, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 6, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 6, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 7, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 7, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 8, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 8, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 9, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 9, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 10, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 10, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 11, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 11, year: 2029).sum(:backup_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 12, year: 2029).sum(:lead_hours_worked)
+            %td= StudyTask.where(study_id: study.study_id, month: 12, year: 2029).sum(:backup_hours_worked)
+
+  %br
