@@ -16,11 +16,15 @@ Rails.application.routes.draw do
   get :data_managers, to: 'users#data_managers'
   get :new_user, to: 'users#new'
   get :dm_studies, to: 'studies#dm_studies'
+
   get :dm_hours, to: 'manager_hours#dm_hours'
+  
   #get :hours_management, to: 'studies#hours_management'
   #get :get_tasks, to: 'studies#index_tasks'
   get '/studies/:id/hours_management(.:format)' => 'studies#hours_management', as: :hours_management
+  
   get :show_dm_hours, to: 'manager_hours#new'
+
   get :edite_mh, to: 'manager_hours#edite'
   devise_for :users
 
