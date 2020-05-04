@@ -2,7 +2,7 @@ class ManagerHoursController < ApplicationController
   before_action :set_manager_hour, only: [:show, :edit, :update, :destroy]
 
   # GET /manager_hours
-  def index_2020
+  def index
     @manager_hours = ManagerHour.all
   end
 
