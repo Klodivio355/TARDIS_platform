@@ -1,0 +1,40 @@
+.grouping
+
+  %h1 Projected Task Timeline for Studies
+
+  .scrollable
+    %table.table.table-bordered.table-hover
+      %thead
+        %tr
+          %th Study Name
+          %th Jan
+          %th Feb
+          %th Mar
+          %th Apr
+          %th May
+          %th Jun
+          %th Jul
+          %th Aug
+          %th Sep
+          %th Oct
+          %th Nov
+          %th Dec
+
+      %tbody
+        %tr
+        - @studies.each do |study|
+          %tr
+            %td= study.study_name
+            %td= StudyTask.where(study_id: study.study_id, month: 1, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 2, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 3, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 4, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 5, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 6, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 7, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 8, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 9, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 10, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 11, year: 2030).distinct(true).pluck(:task_name).first
+            %td= StudyTask.where(study_id: study.study_id, month: 12, year: 2030).distinct(true).pluck(:task_name).first
+%br
