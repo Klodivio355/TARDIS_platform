@@ -80,10 +80,6 @@
                       = icon 'fas', 'dm_hours_lists'
                       Manage Hours
 
-
-
-
-
                   -#= navbar_link_to 'add_users', title: "Add Data Managers", identifier: :add_users do
                     -#= icon 'fas', 'add_users'
                     -#Add Users
@@ -97,6 +93,215 @@
                     .dropdown-menu{ aria: { labelledby: '#navbar-users-link' } }
                       = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system" do
                         = icon 'fas', 'sign-out-alt', 'Log out'
+
+
+        -#dm years navbar
+        - if current_page?('/dm_hours') || current_page?('/dm_hours_2021') || current_page?('/dm_hours_2022') || current_page?('/dm_hours_2023') || current_page?('/dm_hours_2024') || current_page?('/dm_hours_2025') || current_page?('/dm_hours_2026') || current_page?('/dm_hours_2027') || current_page?('/dm_hours_2028') || current_page?('/dm_hours_2029') || current_page?('/dm_hours_2030')
+          %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
+            .container
+              .collapse.navbar-collapse#navbar-content
+                %ul.nav.navbar-nav
+                  - if current_user
+                    = navbar_link_to 'dm_hours', title: "View DM Hours 2020", identifier: :dm_yr2020 do
+                      = icon 'fas', 'dm_yr2020'
+                      2020
+
+                    = navbar_link_to 'dm_hours_2021', title: "View your Hours 2021", identifier: :dm_yr2021 do
+                      = icon 'fas', 'dm_yr2021'
+                      2021
+
+                    = navbar_link_to 'dm_hours_2022', title: "View your Hours 2022", identifier: :dm_yr2022 do
+                      = icon 'fas', 'dm_yr2022'
+                      2022
+
+                    = navbar_link_to 'dm_hours_2023', title: "View your Hours 2023", identifier: :dm_yr2023 do
+                      = icon 'fas', 'dm_yr2023'
+                      2023
+
+                    = navbar_link_to 'dm_hours_2024', title: "View your Hours 2024", identifier: :dm_yr2024 do
+                      = icon 'fas', 'dm_yr2024'
+                      2024
+
+                    = navbar_link_to 'dm_hours_2025', title: "View your Hours 2025", identifier: :dm_yr2025 do
+                      = icon 'fas', 'dm_yr2025'
+                      2025
+
+                    = navbar_link_to 'dm_hours_2026', title: "View your Hours 2026", identifier: :dm_yr2026 do
+                      = icon 'fas', 'dm_yr2026'
+                      2026
+
+                    = navbar_link_to 'dm_hours_2027', title: "View your Hours 2027", identifier: :dm_yr2027 do
+                      = icon 'fas', 'dm_yr2027'
+                      2027
+
+                    = navbar_link_to 'dm_hours_2028', title: "View your Hours 2028", identifier: :dm_yr2028 do
+                      = icon 'fas', 'dm_yr2028'
+                      2028
+
+                    = navbar_link_to 'dm_hours_2029', title: "View your Hours 2029", identifier: :dm_yr2029 do
+                      = icon 'fas', 'dm_yr2029'
+                      2029
+
+                    = navbar_link_to 'dm_hours_2030', title: "View your Hours 2030", identifier: :dm_yr2030 do
+                      = icon 'fas', 'dm_yr2030'
+                      2030
+
+        -#admin years navbar
+        - if current_page?('/manager_hours') || current_page?('/manager_hours_2021') || current_page?('/manager_hours_2022') || current_page?('/manager_hours_2023') || current_page?('/manager_hours_2024') || current_page?('/manager_hours_2025') || current_page?('/manager_hours_2026') || current_page?('/manager_hours_2027') || current_page?('/manager_hours_2028') || current_page?('/manager_hours_2029') || current_page?('/manager_hours_2030')
+          %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
+            .container
+              .collapse.navbar-collapse#navbar-content
+                %ul.nav.navbar-nav
+
+                  - if current_user.admin
+                    = navbar_link_to 'manager_hours', title: "View DM Hours 2020", identifier: :admin_yr2020 do
+                      = icon 'fas', 'admin_yr2020'
+                      2020
+
+                    = navbar_link_to 'manager_hours_2021', title: "View DM Hours 2021", identifier: :admin_yr2021 do
+                      = icon 'fas', 'admin_yr2021'
+                      2021
+
+                    = navbar_link_to 'manager_hours_2022', title: "View DM Hours 2022", identifier: :admin_yr2022 do
+                      = icon 'fas', 'admin_yr2022'
+                      2022
+
+                    = navbar_link_to 'manager_hours_2023', title: "View DM Hours 2023", identifier: :admin_yr2023 do
+                      = icon 'fas', 'admin_yr2023'
+                      2023
+
+                    = navbar_link_to 'manager_hours_2024', title: "View DM Hours 2024", identifier: :admin_yr2024 do
+                      = icon 'fas', 'admin_yr2024'
+                      2024
+
+                    = navbar_link_to 'manager_hours_2025', title: "View DM Hours 2025", identifier: :admin_yr2025 do
+                      = icon 'fas', 'admin_yr2025'
+                      2025
+
+                    = navbar_link_to 'manager_hours_2026', title: "View DM Hours 2026", identifier: :admin_yr2026 do
+                      = icon 'fas', 'admin_yr2026'
+                      2026
+
+                    = navbar_link_to 'manager_hours_2027', title: "View DM Hours 2027", identifier: :admin_yr2027 do
+                      = icon 'fas', 'admin_yr2027'
+                      2027
+
+                    = navbar_link_to 'manager_hours_2028', title: "View DM Hours 2028", identifier: :admin_yr2028 do
+                      = icon 'fas', 'admin_yr2028'
+                      2028
+
+                    = navbar_link_to 'manager_hours_2029', title: "View DM Hours 2029", identifier: :admin_yr2029 do
+                      = icon 'fas', 'admin_yr2029'
+                      2029
+
+                    = navbar_link_to 'manager_hours_2030', title: "View DM Hours 2030", identifier: :admin_yr2030 do
+                      = icon 'fas', 'admin_yr2030'
+                      2030
+
+
+        -#admin month_timeline navbar
+        - if current_page?('/month_timeline') || current_page?('/month_timeline_2021') || current_page?('/month_timeline_2022') || current_page?('/month_timeline_2023') || current_page?('/month_timeline_2024') || current_page?('/month_timeline_2025') || current_page?('/month_timeline_2026') || current_page?('/month_timeline_2027') || current_page?('/month_timeline_2028') || current_page?('/month_timeline_2029') || current_page?('/month_timeline_2030')
+          %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
+            .container
+              .collapse.navbar-collapse#navbar-content
+                %ul.nav.navbar-nav
+
+                  - if current_user.admin
+                    = navbar_link_to 'month_timeline', title: "View Month Timeline 2020", identifier: :admin_month2020 do
+                      = icon 'fas', 'admin_month2020'
+                      2020
+
+                    = navbar_link_to 'month_timeline_2021', title: "View Month Timeline 2021", identifier: :admin_month2021 do
+                      = icon 'fas', 'admin_month2021'
+                      2021
+
+                    = navbar_link_to 'month_timeline_2022', title: "View Month Timeline 2022", identifier: :admin_month2022 do
+                      = icon 'fas', 'admin_month2022'
+                      2022
+
+                    = navbar_link_to 'month_timeline_2023', title: "View Month Timeline 2023", identifier: :admin_month2023 do
+                      = icon 'fas', 'admin_month2023'
+                      2023
+
+                    = navbar_link_to 'month_timeline_2024', title: "View Month Timeline 2024", identifier: :admin_month2024 do
+                      = icon 'fas', 'admin_month2024'
+                      2024
+
+                    = navbar_link_to 'month_timeline_2025', title: "View Month Timeline 2025", identifier: :admin_month2025 do
+                      = icon 'fas', 'admin_month2025'
+                      2025
+
+                    = navbar_link_to 'month_timeline_2026', title: "View Month Timeline 2026", identifier: :admin_month2026 do
+                      = icon 'fas', 'admin_month2026'
+                      2026
+
+                    = navbar_link_to 'month_timeline_2027', title: "View Month Timeline 2027", identifier: :admin_month2027 do
+                      = icon 'fas', 'admin_month2027'
+                      2027
+
+                    = navbar_link_to 'month_timeline_2028', title: "View Month Timeline 2028", identifier: :admin_month2028 do
+                      = icon 'fas', 'admin_month2028'
+                      2028
+
+                    = navbar_link_to 'month_timeline_2029', title: "View Month Timeline 2029", identifier: :admin_month2029 do
+                      = icon 'fas', 'admin_month2029'
+                      2029
+
+                    = navbar_link_to 'month_timeline_2030', title: "View Month Timeline 2030", identifier: :admin_month2030 do
+                      = icon 'fas', 'admin_month2030'
+                      2030
+
+        -#admin study_hours_timeline navbar
+        - if current_page?('/study_hours_timeline') || current_page?('/sh_timeline_2021') || current_page?('/sh_timeline_2022') || current_page?('/sh_timeline_2023') || current_page?('/sh_timeline_2024') || current_page?('/sh_timeline_2025') || current_page?('/sh_timeline_2026') || current_page?('/sh_timeline_2027') || current_page?('/sh_timeline_2028') || current_page?('/sh_timeline_2029') || current_page?('/sh_timeline_2030')
+          %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
+            .container
+              .collapse.navbar-collapse#navbar-content
+                %ul.nav.navbar-nav
+
+                  - if current_user.admin
+                    = navbar_link_to 'study_hours_timeline', title: "View Study Hours Timeline 2020", identifier: :admin_sh2020 do
+                      = icon 'fas', 'admin_sh2020'
+                      2020
+
+                    = navbar_link_to 'sh_timeline_2021', title: "View Study Hours Timeline 2021", identifier: :admin_sh2021 do
+                      = icon 'fas', 'admin_sh2021'
+                      2021
+
+                    = navbar_link_to 'sh_timeline_2022', title: "View Study Hours Timeline 2022", identifier: :admin_sh2022 do
+                      = icon 'fas', 'admin_sh2022'
+                      2022
+
+                    = navbar_link_to 'sh_timeline_2023', title: "View Study Hours Timeline 2023", identifier: :admin_sh2023 do
+                      = icon 'fas', 'admin_sh2023'
+                      2023
+
+                    = navbar_link_to 'sh_timeline_2024', title: "View Study Hours Timeline 2024", identifier: :admin_sh2024 do
+                      = icon 'fas', 'admin_sh2024'
+                      2024
+
+                    = navbar_link_to 'sh_timeline_2025', title: "View Study Hours Timeline 2025", identifier: :admin_sh2025 do
+                      = icon 'fas', 'admin_sh2025'
+                      2025
+
+                    = navbar_link_to 'sh_timeline_2026', title: "View Study Hours Timeline 2026", identifier: :admin_sh2026 do
+                      = icon 'fas', 'admin_sh2026'
+                      2026
+
+                    = navbar_link_to 'sh_timeline_2027', title: "View Study Hours Timeline 2027", identifier: :admin_sh2027 do
+                      = icon 'fas', 'admin_sh2027'
+                      2027
+
+                    = navbar_link_to 'sh_timeline_2028', title: "View Study Hours Timeline 2028", identifier: :admin_sh2028 do
+                      = icon 'fas', 'admin_sh2028'
+                      2028
+
+                    = navbar_link_to 'sh_timeline_2029', title: "View Study Hours Timeline 2029", identifier: :admin_sh2029 do
+                      = icon 'fas', 'admin_sh2029'
+                      2029
+
+                    = navbar_link_to 'sh_timeline_2030', title: "View Study Hours Timeline 2030", identifier: :admin_sh2030 do
+                      = icon 'fas', 'admin_sh2030'
+                      2030
 
       %main
         #main-container
