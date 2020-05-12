@@ -10,3 +10,9 @@
 User.where(email:
                'users@gmail.com').first_or_create(password:
                                                                        'mdp123', password_confirmation: 'mdp123')
+
+task_lists.create(task_name: 'routine data')
+task_lists.create(task_name: 'late phase CTIMP')
+task_lists.create(task_name: 'early phase CTIMP')
+task_lists.create(task_name: 'complex intervention')
+task_lists.create(task_name: 'REDCAP observational')
