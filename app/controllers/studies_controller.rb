@@ -119,6 +119,8 @@ class StudiesController < ApplicationController
     dater = params[:start_date]
     lplv = params[:lplv]
 
+    @studies = Study.where(study_id: id, type_of: type, start_date: dater, lplv: lplv).update(generated: true)
+
     if type == 'Routine data'
       for i in (6).downto(0)
         if dater.to_time.to_date.strftime('%m').to_i - i < 1
