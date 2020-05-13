@@ -103,6 +103,10 @@
                 .collapse.navbar-collapse#navbar-content
                   %ul.nav.navbar-nav
                     - if current_user
+                      = navbar_link_to 'dm_hours_2019', title: "View DM Hours 2019", identifier: :dm_yr2019 do
+                        = icon 'fas', 'dm_yr2019'
+                        2019
+
                       = navbar_link_to 'dm_hours', title: "View DM Hours 2020", identifier: :dm_yr2020 do
                         = icon 'fas', 'dm_yr2020'
                         2020
@@ -156,6 +160,10 @@
                   %ul.nav.navbar-nav
 
                     - if current_user.admin
+                      = navbar_link_to 'manager_hours_2019', title: "View DM Hours 2019", identifier: :admin_yr2019 do
+                        = icon 'fas', 'admin_yr2020'
+                        2019
+
                       = navbar_link_to 'manager_hours', title: "View DM Hours 2020", identifier: :admin_yr2020 do
                         = icon 'fas', 'admin_yr2020'
                         2020
@@ -210,6 +218,10 @@
                   %ul.nav.navbar-nav
 
                     - if current_user.admin
+                      = navbar_link_to 'month_timeline_2019', title: "View Month Timeline 2019", identifier: :admin_month2019 do
+                        = icon 'fas', 'admin_month2019'
+                        2019
+
                       = navbar_link_to 'month_timeline', title: "View Month Timeline 2020", identifier: :admin_month2020 do
                         = icon 'fas', 'admin_month2020'
                         2020
@@ -263,6 +275,10 @@
                   %ul.nav.navbar-nav
 
                     - if current_user.admin
+                      = navbar_link_to 'study_hours_timeline_2019', title: "View Study Hours Timeline 2019", identifier: :admin_sh2019 do
+                        = icon 'fas', 'admin_sh2019'
+                        2019
+
                       = navbar_link_to 'study_hours_timeline', title: "View Study Hours Timeline 2020", identifier: :admin_sh2020 do
                         = icon 'fas', 'admin_sh2020'
                         2020
