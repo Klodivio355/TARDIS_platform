@@ -91,6 +91,8 @@
                       = icon 'fas', 'users', current_user.email
                       %b.caret
                     .dropdown-menu{ aria: { labelledby: '#navbar-users-link' } }
+                      -#= link_to new_password_path, class: 'dropdown-item', method: :update, title: "Change your password" do
+                        -#= icon 'fas', 'sign-out-alt', 'Change Password'
                       = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system" do
                         = icon 'fas', 'sign-out-alt', 'Log out'
 
