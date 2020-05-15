@@ -197,6 +197,9 @@ class StudiesController < ApplicationController
           end
         end
       end
+    else
+      render 'errors/error_404'
+      @studies = Study.where(study_id: id, type_of: type, start_date: dater, lplv: lplv).update(generated: false)
     end
 
     for p in (12).downto(lplv.to_time.to_date.strftime('%m').to_i + 1)
