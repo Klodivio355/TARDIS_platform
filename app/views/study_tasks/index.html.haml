@@ -8,7 +8,6 @@
     %table.table.table-bordered.table-hover
       %thead
         %tr
-          %th ID
           %th Name
           %th Study
           %th Lead DM Hours
@@ -21,7 +20,6 @@
       %tbody
         - @study_tasks.each do |study_task|
           %tr
-            %td= study_task.task_id
             %td= study_task.task_name
             %td= study_task.study_id
             %td= study_task.lead_hours_worked

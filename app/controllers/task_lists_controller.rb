@@ -4,6 +4,7 @@ class TaskListsController < ApplicationController
   # GET /task_lists
   def index
     @task_lists = TaskList.all
+    @study_tasks = StudyTask.all
   end
 
   # GET /task_lists/1

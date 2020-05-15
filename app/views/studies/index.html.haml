@@ -47,7 +47,12 @@
             %td= link_to 'Edit', edit_study_path(study)
             %td= link_to 'Tasks', get_tasks_path(study.study_id)
             %td= link_to 'Add Task', add_related_task_path(study.study_id)
+<<<<<<< Updated upstream
             %td= button_to 'Generate Month Timeline', generate_mt_path(study.study_id, study.type_of, study.start_date, study.lplv), class: "btn btn-outline-dark"
+=======
+            - if study.generated == false
+              %td= button_to 'Generate Month Timeline', generate_mt_path(study.study_id, study.type_of, study.start_date, study.lplv)
+>>>>>>> Stashed changes
             -#%td= link_to 'Add Hours as Guest', edit_study_path(study)
   %br
 

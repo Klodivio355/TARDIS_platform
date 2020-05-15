@@ -4,8 +4,12 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
   - if (!@study_task.complete)
     .form-inputs
+    -#Select Task :
+    -#= f.select :task_name, options_for_select([['blabla'],['blablabla']])
     = f.input :task_name
-    = f.input :study_id
+    = f.input :study_id, :readonly => true
+    = f.input :year
+    = f.input :month
     = f.input :complete
     - if (current_user.email == Study.where(study_id: @study_task.study_id).pluck(:backup_manager).first && current_user.email == Study.where(study_id: @study_task.study_id).pluck(:lead_manager).first)
       = f.input :lead_hours_worked

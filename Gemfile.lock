@@ -128,6 +128,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    composite_primary_keys (12.0.1)
+      activerecord (~> 6.0.0)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     daemons (1.1.9)
@@ -401,6 +403,7 @@ DEPENDENCIES
   capybara
   capybara-select2!
   coffee-rails
+  composite_primary_keys
   daemons (= 1.1.9)
   database_cleaner
   delayed-plugins-airbrake

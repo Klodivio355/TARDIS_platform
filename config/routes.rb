@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get :manager_hours_2029, to: 'manager_hours#index_2029'
   get :manager_hours_2030, to: 'manager_hours#index_2030'
 
+  get :month_timeline_2019, to: 'studies#month_timeline_2019'
   get :month_timeline_2021, to: 'studies#month_timeline_2021'
   get :month_timeline_2022, to: 'studies#month_timeline_2022'
   get :month_timeline_2023, to: 'studies#month_timeline_2023'
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
   get :month_timeline_2029, to: 'studies#month_timeline_2029'
   get :month_timeline_2030, to: 'studies#month_timeline_2030'
 
+  get :study_hours_timeline_2019, to: 'studies#study_hours_timeline_2019'
   get :sh_timeline_2021, to: 'studies#study_hours_timeline_2021'
   get :sh_timeline_2022, to: 'studies#study_hours_timeline_2022'
   get :sh_timeline_2023, to: 'studies#study_hours_timeline_2023'
@@ -64,8 +66,10 @@ Rails.application.routes.draw do
 
   #get :hours_management, to: 'studies#hours_management'
   #get :get_tasks, to: 'studies#index_tasks'
-  get '/studies/:id/hours_management(.:format)' => 'studies#hours_management', as: :hours_management
-  
+  # get '/studies/hours_management/:study_id(.:format)/:year(.:format)/:month(.:format)/:task_name(.:format)' => 'studies#hours_management', as: :hours_management
+  get '/study_tasks/edite/:study_id(.:format)/:year(.:format)/:month(.:format)/:task_name(.:format)' => 'study_tasks#edite', as: :study_tasks_edite
+
+
   get :show_dm_hours, to: 'manager_hours#new'
 
   get :edite_mh, to: 'manager_hours#edite'
@@ -79,6 +83,7 @@ Rails.application.routes.draw do
   get '/get_tasks/:study_id' => 'studies#index_tasks', :as => :get_tasks
   get '/study_tasks/new/:study_id(.:format)' => 'study_tasks#new', :as => :add_related_task
   get '/study_tasks/guest/:study_id(.:format)' => 'study_tasks#guest', :as => :add_hours_guest
+  get '/study_tasks/show/:task_name(.:format)' => 'study_tasks#show', :as => :study_task_show
   #get '/studies/generate_mt/:study_id' => 'studies#generate_mt', :as => :generate_mt
 
   post 'generate_mt/:study_id(.:format)/:type_of(.:format)/:start_date(.:format)/:lplv(.:format)' => 'studies#generate_mt', as: :generate_mt

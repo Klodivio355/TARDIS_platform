@@ -13,6 +13,7 @@ gem 'activerecord-session_store'
 gem 'bootsnap'
 gem 'responders'
 gem 'thin'
+gem 'composite_primary_keys'
 
 gem 'sqlite3', '1.4.1', group: [:development, :test]
 gem 'pg'

@@ -1,5 +1,5 @@
 class StudyTasksController < ApplicationController
-  before_action :set_study_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_study_task, only: [:show, :edit, :update, :destroy, :edite]
 
   # GET /study_tasks
   def index
@@ -9,6 +9,14 @@ class StudyTasksController < ApplicationController
 
   # GET /study_tasks/1
   def show
+  end
+
+  def edite
+    task_name = params[:task_name]
+    study_id = params[:study_id]
+    year = params[:year]
+    month = params[:month]
+    @study_tasks = StudyTask.where(study_id: study_id, year: year, month: month, task_name: task_name)
   end
 
 
