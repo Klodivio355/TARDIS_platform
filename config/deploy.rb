@@ -10,7 +10,7 @@ set :branch,                  -> { fetch(:stage) }
 
 ## Ruby configuration
 set :rvm_type,                    :system
-set :rvm_ruby_version,            'ruby-2.6.3'
+set :rvm_ruby_version,            'ruby-2.6.2'
 set :rvm_path,                    '/usr/local/rvm'
 
 # Currently Passenger is installed against the 'default' Ruby version
