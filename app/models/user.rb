@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+#checks username - why?
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -20,6 +21,7 @@ class User < ApplicationRecord
     end
   end
 
+#checks if username or email is in table
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -33,12 +35,14 @@ class User < ApplicationRecord
 
   validate :validate_username
 
+#when making username - check if it exists
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
     end
   end
 
+#login the user based on username or email
   def login
     @login || self.username || self.email
   end

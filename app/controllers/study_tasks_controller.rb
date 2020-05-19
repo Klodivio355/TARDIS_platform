@@ -65,6 +65,7 @@ class StudyTasksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    #assign task to study based on id
     def set_study_task
       params.permit!
       @study_task = StudyTask.find(params[:id])

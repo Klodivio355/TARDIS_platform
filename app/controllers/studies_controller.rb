@@ -129,6 +129,7 @@ class StudiesController < ApplicationController
   def show
   end
 
+  #generate the timelines based on the type and task using the paramaters provided
   def generate_mt
     id = params[:study_id]
     type = params[:type_of]
@@ -137,6 +138,7 @@ class StudiesController < ApplicationController
 
     @studies = Study.where(study_id: id, type_of: type, start_date: dater, lplv: lplv).update(generated: true)
 
+    #different types require different tasks to be projected after a certain time
     if type == 'Routine data'
       for i in (6).downto(0)
         if dater.to_time.to_date.strftime('%m').to_i - i < 1
@@ -158,6 +160,7 @@ class StudiesController < ApplicationController
         end
       end
 
+      #once types are checked, the dates are checked and tasks are projected accordingly
       if dater.to_time.to_date.strftime('%m').to_i - 2 < 1
         @study_tasks = StudyTask.create(study_id: id, task_name: :"Spec", year: previous_year, month: (dater.to_time.to_date.strftime('%m').to_i + 12) - 2, complete: false)
       else
@@ -202,6 +205,7 @@ class StudiesController < ApplicationController
       @studies = Study.where(study_id: id, type_of: type, start_date: dater, lplv: lplv).update(generated: false)
     end
 
+    #shows the actual generated timeline
     for p in (12).downto(lplv.to_time.to_date.strftime('%m').to_i + 1)
       @study_tasks = StudyTask.where(:study_id => id).where(:task_name => "Follow up").where(:year => lplv.to_time.to_date.year.to_i).where(:month => p).where(:complete => false).delete_all
     end

@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string "session_id", null: false
-    t.text "data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
-    t.index ["updated_at"], name: "index_sessions_on_updated_at"
-  end
-
   create_table "manager_hours", primary_key: ["email", "year", "month"], force: :cascade do |t|
     t.string "email", limit: 50, null: false
     t.integer "year", null: false
@@ -47,6 +38,15 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.integer "allocated_hours"
     t.integer "holiday_hours"
     t.integer "spare_hours"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "studies", primary_key: "study_id", id: :serial, force: :cascade do |t|
@@ -59,15 +59,14 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.date "start_date"
     t.date "lplv"
     t.boolean "study_finished", null: false
-    t.boolean "generated", default: false
   end
 
   create_table "study_tasks", primary_key: "task_id", id: :serial, force: :cascade do |t|
     t.string "task_name", limit: 50, null: false
     t.integer "study_id", null: false
-    t.integer "backup_hours_worked", default: 0
-    t.integer "lead_hours_worked", default: 0
-    t.integer "guest_hours_worked", default: 0
+    t.integer "backup_hours_worked"
+    t.integer "lead_hours_worked"
+    t.integer "guest_hours_worked"
     t.integer "year"
     t.integer "month"
     t.boolean "complete", default: false, null: false
@@ -76,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
   create_table "task_lists", primary_key: "task_name", id: :string, limit: 50, force: :cascade do |t|
     t.integer "predicted_hours"
     t.integer "average_hours"
-    # t.integer "task_counter", default: 0
+    t.integer "task_counter"
     t.integer "maximum_hours"
     t.integer "minimum_hours"
   end
@@ -100,8 +99,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
-
-
 
   add_foreign_key "manager_hours", "users", column: "email", primary_key: "email", name: "mh_email"
   add_foreign_key "studies", "users", column: "backup_manager", primary_key: "email", name: "study__backup"

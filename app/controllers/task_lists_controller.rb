@@ -41,6 +41,7 @@ class TaskListsController < ApplicationController
     end
   end
 
+  #show the taskslists
   def get_rel_task(arg)
     @task_list = TaskList.find(arg.id)
     render :'task_lists/show'
