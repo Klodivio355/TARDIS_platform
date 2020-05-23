@@ -88,6 +88,11 @@
                     -#= icon 'fas', 'add_users'
                     -#Add Users
 
+                  -#= navbar_link_to 'studies', title: "Change your password", identifier: :change_password do
+                    -#= icon 'fas', 'change_password'
+                    -#Change Password
+
+
               - if user_signed_in?
                 %ul.nav.navbar-nav.ml-auto
                   %li.nav-item.dropdown
@@ -95,8 +100,8 @@
                       = icon 'fas', 'users', current_user.email
                       %b.caret
                     .dropdown-menu{ aria: { labelledby: '#navbar-users-link' } }
-                      -#= link_to new_password_path, class: 'dropdown-item', method: :update, title: "Change your password" do
-                        -#= icon 'fas', 'sign-out-alt', 'Change Password'
+                      = link_to edit_user_registration_path, class: 'dropdown-item', title: "Change your password" do
+                        = icon 'fas', 'lock-open', 'Change Password'
                       = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system" do
                         = icon 'fas', 'sign-out-alt', 'Log out'
 
