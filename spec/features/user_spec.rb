@@ -7,12 +7,6 @@ describe 'Log in' do
     expect(page).to have_content 'Sign up'
   end
 
-  it 'should redirect to forgotten password' do
-    visit '/'
-    click_link 'Forgot your password?'
-    expect(page).to have_content 'Forgot your password?'
-  end
-
   it 'should log in with email' do
     FactoryBot.create :user
     visit '/'
@@ -119,15 +113,6 @@ describe 'Sign Up' do
 	  visit new_user_registration_path
 	  click_link 'Back'
 	  expect(page).to have_content 'Log in'
-  end
-end
-
-
-describe 'Forgotten your password' do
-  it 'should redirect to log in' do
-    visit new_user_password_path
-    click_link 'Back'
-    expect(page).to have_content 'Log in'
   end
 end
 
