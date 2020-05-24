@@ -6,7 +6,7 @@ class ManagerHoursController < ApplicationController
     @manager_hours = ManagerHour.all
   end
 
-    def index_2021
+  def index_2021
     @manager_hours = ManagerHour.all
   end
 
@@ -67,27 +67,27 @@ class ManagerHoursController < ApplicationController
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2025
+  def dm_hours_2025
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2026
+  def dm_hours_2026
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2027
+  def dm_hours_2027
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2028
+  def dm_hours_2028
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2029
+  def dm_hours_2029
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
   
-    def dm_hours_2030
+  def dm_hours_2030
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
   #---------------------------------------------------------------------------------------

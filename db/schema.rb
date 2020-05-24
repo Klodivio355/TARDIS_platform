@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_145027) do
     t.date "start_date"
     t.date "lplv"
     t.boolean "study_finished", null: false
+    t.boolean "generated", default: false
   end
 
   create_table "study_tasks", primary_key: "task_id", id: :serial, force: :cascade do |t|
