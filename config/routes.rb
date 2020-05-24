@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get :dm_hours_2029, to: 'manager_hours#dm_hours_2029'
   get :dm_hours_2030, to: 'manager_hours#dm_hours_2030'
 
+  get :manager_hours_2019, to: 'manager_hours#index_2019'
   get :manager_hours_2021, to: 'manager_hours#index_2021'
   get :manager_hours_2022, to: 'manager_hours#index_2022'
   get :manager_hours_2023, to: 'manager_hours#index_2023'

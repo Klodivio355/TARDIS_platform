@@ -6,43 +6,47 @@ class ManagerHoursController < ApplicationController
     @manager_hours = ManagerHour.all
   end
 
+  def index_2019
+    @manager_hours = ManagerHour.all
+  end
+
   def index_2021
     @manager_hours = ManagerHour.all
   end
 
-    def index_2022
+  def index_2022
     @manager_hours = ManagerHour.all
   end
 
-    def index_2023
+  def index_2023
     @manager_hours = ManagerHour.all
   end
 
-    def index_2024
+  def index_2024
     @manager_hours = ManagerHour.all
   end
 
-    def index_2025
+  def index_2025
     @manager_hours = ManagerHour.all
   end
 
-    def index_2026
+  def index_2026
     @manager_hours = ManagerHour.all
   end
 
-    def index_2027
+  def index_2027
     @manager_hours = ManagerHour.all
   end
 
-    def index_2028
+  def index_2028
     @manager_hours = ManagerHour.all
   end
 
-    def index_2029
+  def index_2029
     @manager_hours = ManagerHour.all
   end
 
-    def index_2030
+  def index_2030
     @manager_hours = ManagerHour.all
   end
 #---------------------------------------------------------------------------------------
@@ -51,19 +55,23 @@ class ManagerHoursController < ApplicationController
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2021
+  def dm_hours_2019
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2022
+  def dm_hours_2021
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2023
+  def dm_hours_2022
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
-    def dm_hours_2024
+  def dm_hours_2023
+    @manager_hours = ManagerHour.where(email: current_user.email)
+  end
+
+  def dm_hours_2024
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
 
@@ -86,7 +94,7 @@ class ManagerHoursController < ApplicationController
   def dm_hours_2029
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
-  
+
   def dm_hours_2030
     @manager_hours = ManagerHour.where(email: current_user.email)
   end
