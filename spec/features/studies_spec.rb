@@ -170,6 +170,20 @@ describe 'Study List - managing studies' do
     within(:css, 'table') { expect(page).to have_content 'Study 1' }
     within(:css, 'table') { expect(page).to have_content 'Study 2' }
   end
+
+  it 'should display completed studies in the table' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list
+    study1 = FactoryBot.create :study, study_finished: true
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    within(:css, 'table') { expect(page).to have_content 'Study 1' }
+    within(:css, 'table') { expect(page).to have_content 'true' }
+  end
 end
 
 describe 'Search function on Study List' do
