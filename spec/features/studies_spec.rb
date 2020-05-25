@@ -297,14 +297,92 @@ describe 'Managing tasks for a specific study' do
     expect(page).to have_content 'Listing Specific Tasks Assigned to Studies'
     within(:css, 'table') { expect(page).to have_content 'CRFs' }
   end
+
+  it 'should not be able view a task assigned for a different study' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    task1 = FactoryBot.create :task_list, task_name: 'Spec'
+    task2 = FactoryBot.create :task_list, task_name: 'CRFs'
+    task3 = FactoryBot.create :task_list
+    study = FactoryBot.create :study
+    study2 = FactoryBot.create :study, study_name: 'Study 2'
+    study_task1 = FactoryBot.create :study_task, task_name: 'CRFs', study_id: study.study_id
+    study_task2 = FactoryBot.create :study_task, study_id: study.study_id
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    click_link 'View Tasks'
+    expect(page).to have_content 'Listing Specific Tasks Assigned to Studies'
+    within(:css, 'table') { expect(page).to have_content 'CRFs' }
+    within(:css, 'table') { expect(page).not_to have_content 'Spec' }
+  end
 end
 
 describe 'Generate month timeline button' do
-  it 'should generate month timeline for a study' do
+  it 'should generate month timeline for a study - Routine data' do
     user1 = FactoryBot.create :user
     user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
     FactoryBot.create :task_list
     FactoryBot.create :study
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    click_button 'Generate Month Timeline'
+    expect(page).to have_content 'Month Timeline correctly generated'
+  end
+
+  it 'should generate month timeline for a study - late phase CTIMP - January' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list, task_name: 'CRFs'
+    FactoryBot.create :task_list, task_name: 'Spec'
+    FactoryBot.create :task_list, task_name: 'Functional QC'
+    FactoryBot.create :task_list, task_name: 'Reports and DVS'
+    FactoryBot.create :task_list, task_name: 'Follow up'
+    study = FactoryBot.create :study, type_of: 'late phase CTIMP'
+    FactoryBot.create :study_task, task_name: 'CRFs', study_id: study.study_id
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    click_button 'Generate Month Timeline'
+    expect(page).to have_content 'Month Timeline correctly generated'
+  end
+
+  it 'should generate month timeline for a study - late phase CTIMP - August' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list, task_name: 'CRFs'
+    FactoryBot.create :task_list, task_name: 'Spec'
+    FactoryBot.create :task_list, task_name: 'Functional QC'
+    FactoryBot.create :task_list, task_name: 'Reports and DVS'
+    FactoryBot.create :task_list, task_name: 'Follow up'
+    study = FactoryBot.create :study, type_of: 'late phase CTIMP', start_date: '01/08/2015'
+    FactoryBot.create :study_task, task_name: 'CRFs', study_id: study.study_id
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    click_button 'Generate Month Timeline'
+    expect(page).to have_content 'Month Timeline correctly generated'
+  end
+
+  it 'should generate month timeline for a study - late phase CTIMP - December' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list, task_name: 'CRFs'
+    FactoryBot.create :task_list, task_name: 'Spec'
+    FactoryBot.create :task_list, task_name: 'Functional QC'
+    FactoryBot.create :task_list, task_name: 'Reports and DVS'
+    FactoryBot.create :task_list, task_name: 'Follow up'
+    study = FactoryBot.create :study, type_of: 'late phase CTIMP', start_date: '01/12/2019'
+    FactoryBot.create :study_task, task_name: 'CRFs', study_id: study.study_id
     visit '/'
     email = 'admin@example.com'
 	  fill_in 'user_login', :with => email
@@ -327,5 +405,21 @@ describe 'Generate month timeline button' do
     click_button 'Generate Month Timeline'
     visit '/'
     expect(page).not_to have_content 'Generate Month Timeline'
+  end
+end
+
+describe 'error pages' do
+  it 'should redirect to 404' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list
+    FactoryBot.create :study, type_of: 'test1'
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    click_button 'Generate Month Timeline'
+    expect(page).to have_content 'Not Found 404'
   end
 end

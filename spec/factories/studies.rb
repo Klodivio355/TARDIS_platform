@@ -6,7 +6,7 @@ FactoryBot.define do
     notes {"description"}
     lead_manager {"admin@example.com"}
     backup_manager{"dm@example.com"}
-    start_date {"01/01/2015"}
+    start_date {"01/01/2020"}
     lplv {"25/08/2023"}
     study_finished {false}
   end

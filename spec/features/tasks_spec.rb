@@ -61,6 +61,41 @@ RSpec.describe TaskList, type: :features do
       expect(page).to have_content 'Functional QC'
     end
 
+    it 'should be able to redirect to List of Available Tasks & Details' do
+      FactoryBot.create :user, email: 'admin@example.com', admin: true
+      FactoryBot.create :task_list
+      visit '/'
+      email = 'admin@example.com'
+      fill_in 'user_login', :with => email
+      fill_in 'user_password', :with => 'password1'
+      click_button 'Log in'
+      click_link 'Tasks'
+      click_link 'New Task list'
+      fill_in 'task_list_task_name', :with => 'Functional QC'
+      fill_in 'task_list_predicted_hours', :with => 10
+      click_button 'Create Task list'
+      click_link 'Back'
+      expect(page).to have_content 'List of Available Tasks & Details'
+    end
+
+    it 'should be able to edit from task list success page' do
+      FactoryBot.create :user, email: 'admin@example.com', admin: true
+      FactoryBot.create :task_list
+      visit '/'
+      email = 'admin@example.com'
+      fill_in 'user_login', :with => email
+      fill_in 'user_password', :with => 'password1'
+      click_button 'Log in'
+      click_link 'Tasks'
+      click_link 'New Task list'
+      fill_in 'task_list_task_name', :with => 'Functional QC'
+      fill_in 'task_list_predicted_hours', :with => 10
+      click_button 'Create Task list'
+      click_link 'Edit'
+      click_button 'Update Task list'
+      expect(page).to have_content 'Task list was successfully updated'
+    end
+
     it 'should be able to edit a task' do
       FactoryBot.create :user, email: 'admin@example.com', admin: true
       FactoryBot.create :task_list
@@ -75,6 +110,37 @@ RSpec.describe TaskList, type: :features do
       fill_in 'task_list_predicted_hours', :with => '10'
       click_button 'Update Task list'
       expect(page).to have_content 'Task list was successfully updated'
+    end
+
+    it 'should be able to view a task from edit page' do
+      FactoryBot.create :user, email: 'admin@example.com', admin: true
+      FactoryBot.create :task_list
+      visit '/'
+      email = 'admin@example.com'
+      fill_in 'user_login', :with => email
+      fill_in 'user_password', :with => 'password1'
+      click_button 'Log in'
+      click_link 'Tasks'
+      click_link 'Edit'
+      click_link 'Show'
+      expect(page).to have_content 'Routine data'
+    end
+  end
+
+  describe 'error pages' do
+    it 'should show 404 error page' do
+      FactoryBot.create :user, email: 'admin@example.com', admin: true
+      FactoryBot.create :task_list
+      visit '/'
+      email = 'admin@example.com'
+      fill_in 'user_login', :with => email
+      fill_in 'user_password', :with => 'password1'
+      click_button 'Log in'
+      click_link 'Tasks'
+      click_link 'Edit'
+      click_link 'Show'
+      click_link 'Studies'
+      expect(page).to have_content 'Not Found 404'
     end
   end
 end
