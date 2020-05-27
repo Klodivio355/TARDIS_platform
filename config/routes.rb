@@ -96,5 +96,13 @@ Rails.application.routes.draw do
 
   root to: 'studies#index'
 
+  get :study_hours_navbar_link, to: 'studies#study_hours_timeline'
+  get :task_list_navbar_link, to: 'task_lists#index'
+  get :month_timeline_navber_link, to: 'studies#month_timeline'
+  get :data_managers_navbar_link, to: 'users#data_managers'
+  get :manager_hours_navbar_link, to: 'manager_hours#index'
+  get :current_studies_navbar_link, to: 'studies#dm_studies'
+  get :manage_hours_navbar_link, to: 'manager_hours#dm_hours'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

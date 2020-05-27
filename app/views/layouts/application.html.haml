@@ -50,37 +50,37 @@
                   -#Home
 
                 - if current_user
-                  = navbar_link_to 'studies', title: "View Study List", identifier: :study_list do
+                  = navbar_link_to :root, title: "View Study List", identifier: :study_list do
                     = icon 'fas', 'study_list'
                     Studies
 
                   - if current_user.admin
-                    = navbar_link_to 'study_hours_timeline', title: "View Lead & Backup DM Hours Per Month", identifier: :study_hours_timeline do
+                    = navbar_link_to :study_hours_navbar_link, title: "View Lead & Backup DM Hours Per Month", identifier: :study_hours_timeline do
                       = icon 'fas', 'study_hours_timeline'
                       Study Hours
 
-                    = navbar_link_to 'task_lists', title: "View Available Tasks & Details", identifier: :task_list do
+                    = navbar_link_to :task_list_navbar_link, title: "View Available Tasks & Details", identifier: :task_list do
                       = icon 'fas', 'task_list'
                       Tasks
 
-                    = navbar_link_to 'month_timeline', title: "View Month Timeline For All Studies", identifier: :months_timeline do
+                    = navbar_link_to :month_timeline_navber_link, title: "View Month Timeline For All Studies", identifier: :months_timeline do
                       = icon 'fas', 'months_timeline'
                       Month Timeline
 
-                    = navbar_link_to 'data_managers', title: "Manage All Data Managers", identifier: :all_managers do
+                    = navbar_link_to :data_managers_navbar_link, title: "Manage All Data Managers", identifier: :all_managers do
                       = icon 'fas', 'all_managers'
                       Data Managers
 
-                    = navbar_link_to 'manager_hours', title: "View Data Manager Working Hours", identifier: :manager_working_hours do
+                    = navbar_link_to :manager_hours_navbar_link, title: "View Data Manager Working Hours", identifier: :manager_working_hours do
                       = icon 'fas', 'manager_working_hours'
                       Manager Hours
 
                   - else
-                    = navbar_link_to 'dm_studies', title: "Getting Study Lists", identifier: :dm_studies_lists do
+                    = navbar_link_to :current_studies_navbar_link, title: "Getting Study Lists", identifier: :dm_studies_lists do
                       = icon 'fas', 'dm_studies_lists'
                       Current Studies
 
-                    = navbar_link_to 'dm_hours', title: "Getting own hours", identifier: :dm_hours_lists do
+                    = navbar_link_to :manage_hours_navbar_link, title: "Getting own hours", identifier: :dm_hours_lists do
                       = icon 'fas', 'dm_hours_lists'
                       Manage Hours
 
@@ -107,7 +107,7 @@
 
 
         -#dm years navbar
-        - if current_page?('/dm_hours_2019') || current_page?('/dm_hours') || current_page?('/dm_hours_2021') || current_page?('/dm_hours_2022') || current_page?('/dm_hours_2023') || current_page?('/dm_hours_2024') || current_page?('/dm_hours_2025') || current_page?('/dm_hours_2026') || current_page?('/dm_hours_2027') || current_page?('/dm_hours_2028') || current_page?('/dm_hours_2029') || current_page?('/dm_hours_2030')
+        - if current_page?('/dm_hours_2019') || current_page?('/manage_hours_navbar_link') || current_page?('/dm_hours_2021') || current_page?('/dm_hours_2022') || current_page?('/dm_hours_2023') || current_page?('/dm_hours_2024') || current_page?('/dm_hours_2025') || current_page?('/dm_hours_2026') || current_page?('/dm_hours_2027') || current_page?('/dm_hours_2028') || current_page?('/dm_hours_2029') || current_page?('/dm_hours_2030')
           %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
             .center-years
               .container
@@ -163,7 +163,7 @@
                         2030
 
         -#admin years navbar
-        - if current_page?('/manager_hours_2019') || current_page?('/manager_hours') || current_page?('/manager_hours_2021') || current_page?('/manager_hours_2022') || current_page?('/manager_hours_2023') || current_page?('/manager_hours_2024') || current_page?('/manager_hours_2025') || current_page?('/manager_hours_2026') || current_page?('/manager_hours_2027') || current_page?('/manager_hours_2028') || current_page?('/manager_hours_2029') || current_page?('/manager_hours_2030')
+        - if current_page?('/manager_hours_2019') || current_page?('/manager_hours_navbar_link') || current_page?('/manager_hours_2021') || current_page?('/manager_hours_2022') || current_page?('/manager_hours_2023') || current_page?('/manager_hours_2024') || current_page?('/manager_hours_2025') || current_page?('/manager_hours_2026') || current_page?('/manager_hours_2027') || current_page?('/manager_hours_2028') || current_page?('/manager_hours_2029') || current_page?('/manager_hours_2030')
           %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
             .center-years
               .container
@@ -221,7 +221,7 @@
 
 
         -#admin month_timeline navbar
-        - if current_page?('/month_timeline_2019') || current_page?('/month_timeline') || current_page?('/month_timeline_2021') || current_page?('/month_timeline_2022') || current_page?('/month_timeline_2023') || current_page?('/month_timeline_2024') || current_page?('/month_timeline_2025') || current_page?('/month_timeline_2026') || current_page?('/month_timeline_2027') || current_page?('/month_timeline_2028') || current_page?('/month_timeline_2029') || current_page?('/month_timeline_2030')
+        - if current_page?('/month_timeline_2019') || current_page?('/month_timeline_navber_link') || current_page?('/month_timeline_2021') || current_page?('/month_timeline_2022') || current_page?('/month_timeline_2023') || current_page?('/month_timeline_2024') || current_page?('/month_timeline_2025') || current_page?('/month_timeline_2026') || current_page?('/month_timeline_2027') || current_page?('/month_timeline_2028') || current_page?('/month_timeline_2029') || current_page?('/month_timeline_2030')
           %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
             .center-years
               .container
@@ -278,7 +278,7 @@
                         2030
 
         -#admin study_hours_timeline navbar
-        - if current_page?('/study_hours_timeline_2019') || current_page?('/study_hours_timeline') || current_page?('/sh_timeline_2021') || current_page?('/sh_timeline_2022') || current_page?('/sh_timeline_2023') || current_page?('/sh_timeline_2024') || current_page?('/sh_timeline_2025') || current_page?('/sh_timeline_2026') || current_page?('/sh_timeline_2027') || current_page?('/sh_timeline_2028') || current_page?('/sh_timeline_2029') || current_page?('/sh_timeline_2030')
+        - if current_page?('/study_hours_timeline_2019') || current_page?('/study_hours_navbar_link') || current_page?('/sh_timeline_2021') || current_page?('/sh_timeline_2022') || current_page?('/sh_timeline_2023') || current_page?('/sh_timeline_2024') || current_page?('/sh_timeline_2025') || current_page?('/sh_timeline_2026') || current_page?('/sh_timeline_2027') || current_page?('/sh_timeline_2028') || current_page?('/sh_timeline_2029') || current_page?('/sh_timeline_2030')
           %nav#main-nav.bg-grey.navbar.navbar-dark.navbar-expand-lg
             .center-years
               .container

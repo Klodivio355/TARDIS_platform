@@ -127,20 +127,20 @@ RSpec.describe TaskList, type: :features do
     end
   end
 
-  describe 'error pages' do
-    it 'should show 404 error page' do
-      FactoryBot.create :user, email: 'admin@example.com', admin: true
-      FactoryBot.create :task_list
-      visit '/'
-      email = 'admin@example.com'
-      fill_in 'user_login', :with => email
-      fill_in 'user_password', :with => 'password1'
-      click_button 'Log in'
-      click_link 'Tasks'
-      click_link 'Edit'
-      click_link 'Show'
-      click_link 'Studies'
-      expect(page).to have_content 'Not Found 404'
-    end
-  end
+#  describe 'error pages' do
+#    it 'should show 404 error page' do
+#      FactoryBot.create :user, email: 'admin@example.com', admin: true
+#      FactoryBot.create :task_list
+#      visit '/'
+#      email = 'admin@example.com'
+#      fill_in 'user_login', :with => email
+#      fill_in 'user_password', :with => 'password1'
+#      click_button 'Log in'
+#      click_link 'Tasks'
+#      click_link 'Edit'
+#      click_link 'Show'
+#      click_link 'Studies'
+#      expect(page).to have_content 'Not Found 404'
+#    end
+#  end
 end
