@@ -1,5 +1,89 @@
 require 'rails_helper'
 
+describe 'Study view' do
+  it 'should have a Search button' do
+    FactoryBot.create :user
+    visit '/'
+    email = 'dm@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password1'
+	  click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'Search')
+  end
+
+  it 'should have a Reset button' do
+    FactoryBot.create :user
+    visit '/'
+    email = 'dm@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password1'
+	  click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'Reset')
+  end
+
+  it 'should have a New Study button' do
+    FactoryBot.create :user
+    visit '/'
+    email = 'dm@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password1'
+	  click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'New Study')
+  end
+
+  it 'should have an Edit button for a study' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list
+    FactoryBot.create :study
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'Edit')
+  end
+
+  it 'should have a View Tasks button for a study' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list
+    FactoryBot.create :study
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'View Tasks')
+  end
+
+  it 'should have a Add Task button for a study' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list
+    FactoryBot.create :study
+    visit '/'
+    email = 'admin@example.com'
+	  fill_in 'user_login', :with => email
+	  fill_in 'user_password', :with => 'password2'
+	  click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'Add Task')
+  end
+
+  it 'should have a Generate Month Timeline' do
+    user1 = FactoryBot.create :user
+    user2 = FactoryBot.create :user, email: 'admin@example.com', username: 'test2', password: 'password2', admin: true
+    FactoryBot.create :task_list
+    FactoryBot.create :study
+    visit '/'
+    email = 'admin@example.com'
+    fill_in 'user_login', :with => email
+    fill_in 'user_password', :with => 'password2'
+    click_button 'Log in'
+    expect(page).to have_selector(:link_or_button, 'Generate Month Timeline')
+  end
+end
+
 describe 'Study List navigation' do
   it 'should redirect to Add New Study' do
     FactoryBot.create :user
